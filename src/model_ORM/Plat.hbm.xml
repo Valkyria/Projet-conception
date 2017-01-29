@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Plat" table="plat" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idPlat" type="java.lang.Integer">
+            <column name="idPlat" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="menu" class="model_ORM.Menu" fetch="select">
+            <column name="idMenu" not-null="true" />
+        </many-to-one>
+        <many-to-one name="restaurant" class="model_ORM.Restaurant" fetch="select">
+            <column name="idRestaurant" not-null="true" />
+        </many-to-one>
+        <property name="nomPlat" type="string">
+            <column name="nomPlat" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Reduction" table="reduction" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idReduction" type="java.lang.Integer">
+            <column name="idReduction" />
+            <generator class="identity" />
+        </id>
+        <property name="dateDebutReduction" type="date">
+            <column name="dateDebutReduction" length="10" not-null="true" />
+        </property>
+        <property name="dateFinReduction" type="date">
+            <column name="dateFinReduction" length="10" not-null="true" />
+        </property>
+        <property name="pourcentageReduction" type="double">
+            <column name="pourcentageReduction" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="menus" table="menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idReduction" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Menu" />
+        </set>
+    </class>
+</hibernate-mapping>

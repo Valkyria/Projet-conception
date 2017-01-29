@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Client" table="client" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idClient" type="java.lang.Integer">
+            <column name="idClient" />
+            <generator class="foreign">
+                <param name="property">utilisateur</param>
+            </generator>
+        </id>
+        <one-to-one name="utilisateur" class="model_ORM.Utilisateur" constrained="true"></one-to-one>
+        <many-to-one name="ville" class="model_ORM.Ville" fetch="select">
+            <column name="idVille" not-null="true" />
+        </many-to-one>
+        <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idClient" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Reservation" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Annonce" table="annonce" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idAnnonce" type="java.lang.Integer">
+            <column name="idAnnonce" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="restaurateur" class="model_ORM.Restaurateur" fetch="select">
+            <column name="idRestaurateur" not-null="true" />
+        </many-to-one>
+        <property name="dateDebutAnnonce" type="date">
+            <column name="dateDebutAnnonce" length="10" not-null="true" />
+        </property>
+        <property name="dateFinAnnonce" type="date">
+            <column name="dateFinAnnonce" length="10" not-null="true" />
+        </property>
+        <property name="nbPlaces" type="int">
+            <column name="nbPlaces" not-null="true" />
+        </property>
+        <property name="idRestaurant" type="int">
+            <column name="idRestaurant" not-null="true" />
+        </property>
+        <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idAnnonce" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Reservation" />
+        </set>
+        <set name="creneaus" table="creneau" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idAnnonce" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Creneau" />
+        </set>
+    </class>
+</hibernate-mapping>

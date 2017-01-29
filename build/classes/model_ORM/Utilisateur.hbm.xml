@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Utilisateur" table="utilisateur" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idUtilisateur" type="java.lang.Integer">
+            <column name="idUtilisateur" />
+            <generator class="identity" />
+        </id>
+        <property name="nomUtilisateur" type="string">
+            <column name="nomUtilisateur" length="50" not-null="true" />
+        </property>
+        <property name="prenomUtilisateur" type="string">
+            <column name="prenomUtilisateur" length="50" not-null="true" />
+        </property>
+        <property name="telephoneUtilisateur" type="string">
+            <column name="telephoneUtilisateur" length="10" not-null="true" />
+        </property>
+        <property name="adresseUtilisateur" type="string">
+            <column name="adresseUtilisateur" length="100" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="50" not-null="true" />
+        </property>
+        <property name="motdePasse" type="string">
+            <column name="motdePasse" length="50" not-null="true" />
+        </property>
+        <one-to-one name="restaurateur" class="model_ORM.Restaurateur"></one-to-one>
+        <one-to-one name="client" class="model_ORM.Client"></one-to-one>
+    </class>
+</hibernate-mapping>
