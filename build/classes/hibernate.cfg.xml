@@ -9,6 +9,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- Mapping declaration -->
+        
         <mapping resource="model_ORM/Annonce.hbm.xml"/>
         <mapping resource="model_ORM/Categorie.hbm.xml"/>
         <mapping resource="model_ORM/Client.hbm.xml"/>

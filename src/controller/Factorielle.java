@@ -21,7 +21,7 @@ public class Factorielle {
     public static void adding_user (String nom){
     	Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();
-    	Utilisateur u = new Utilisateur(nom,"luc","0681813399","104 rue test", "mail@mail.com", "mdp0000");
+    	Utilisateur u = new Utilisateur(nom,"soraya","0681813399","104 rue test", "mail@mail.com", "mdp0000");
     	u.setPrenomUtilisateur(nom);
     	session.save(u);
     	tx.commit();

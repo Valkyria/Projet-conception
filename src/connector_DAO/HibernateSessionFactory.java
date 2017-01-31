@@ -14,11 +14,25 @@ public class HibernateSessionFactory {
  static {
    try {
    // Crée la SessionFactory
-	   //Configuration configuration = new Configuration().configure();
-	   //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-	   //applySettings(configuration.getProperties());
-	   //sessionFactory = configuration.buildSessionFactory(builder.build());
-	   sessionFactory = new Configuration().configure().buildSessionFactory();
+	   Configuration configuration = new Configuration().configure();
+	   configuration.addClass(model_ORM.Annonce.class);
+	   configuration.addClass(model_ORM.Categorie.class);
+	   configuration.addClass(model_ORM.Client.class);
+	   configuration.addClass(model_ORM.Creneau.class);
+	   configuration.addClass(model_ORM.Menu.class);
+	   configuration.addClass(model_ORM.Plagefermeture.class);
+	   configuration.addClass(model_ORM.Plat.class);
+	   configuration.addClass(model_ORM.Reduction.class);
+	   configuration.addClass(model_ORM.Reservation.class);
+	   configuration.addClass(model_ORM.Restaurant.class);
+	   configuration.addClass(model_ORM.Restaurateur.class);
+	   configuration.addClass(model_ORM.Tpsmoyenrepas.class);
+	   configuration.addClass(model_ORM.Utilisateur.class);
+	   configuration.addClass(model_ORM.Ville.class);
+	   
+	   StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+	   sessionFactory = configuration.buildSessionFactory(builder.build());
+	   //sessionFactory = new Configuration().configure().buildSessionFactory();
    } 
    catch (HibernateException ex) {
 	   throw new RuntimeException("Problème de configuration : "+ ex.getMessage(), ex);
@@ -41,6 +55,6 @@ public class HibernateSessionFactory {
    Session s = (Session) session.get();
    session.set(null);
    if (s != null)
-   s.close();
+	   s.close();
    }
  }
