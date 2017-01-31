@@ -15,7 +15,7 @@ public class HibernateSessionFactory {
    try {
    // Crée la SessionFactory
 	   Configuration configuration = new Configuration().configure();
-	   configuration.addClass(model_ORM.Annonce.class);
+	  /* configuration.addClass(model_ORM.Annonce.class);
 	   configuration.addClass(model_ORM.Categorie.class);
 	   configuration.addClass(model_ORM.Client.class);
 	   configuration.addClass(model_ORM.Creneau.class);
@@ -28,10 +28,12 @@ public class HibernateSessionFactory {
 	   configuration.addClass(model_ORM.Restaurateur.class);
 	   configuration.addClass(model_ORM.Tpsmoyenrepas.class);
 	   configuration.addClass(model_ORM.Utilisateur.class);
-	   configuration.addClass(model_ORM.Ville.class);
+	   configuration.addClass(model_ORM.Ville.class);*/
 	   
-	   StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-	   sessionFactory = configuration.buildSessionFactory(builder.build());
+	   //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+	   //sessionFactory = configuration.buildSessionFactory(builder.build());
+	   
+	   sessionFactory = configuration.buildSessionFactory();
 	   //sessionFactory = new Configuration().configure().buildSessionFactory();
    } 
    catch (HibernateException ex) {
