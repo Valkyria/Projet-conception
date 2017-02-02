@@ -1,0 +1,26 @@
+
+<!-- <%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Exercice 2 TP2</title>
+    </h:head>
+    <h:body>
+    	<!-- <% controller.Factorielle.adding_user("cedric"); %> -->
+		
+    	<h:form>
+    		
+    		<h:commandButton action="#{Factorielle.adding_user('testJsF')}" value="test" />
+		</h:form>
+
+        <form method="post" action="affichageFactorielle.jsp">
+            <label for="textbox">Nombre(s) a saisir pour la factorielle : </label>
+            <input type="text" name="textbox" id="textbox" width="200" height="200"/>
+            <br/>
+            <input type="submit"/>
+            
+        </form>
+    </h:body>
+</html>
