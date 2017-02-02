@@ -7,8 +7,16 @@
 		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
         <title> La Fourchette </title>
     </h:head>
-    
-	<h:form>
+
+    <h:body>
+        <h1> La Fourchette home page!</h1>
+        <h:form>
+			<p:commandButton value="Tester la base" action="#{Factorielle.adding_user('testJsF')}" styleClass="ui-priority-primary" onclick="PF('dlg3').show();" />	
+        </h:form>
+		<p:dialog header="update done" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+    		<h:outputText value="Utilisteur update check database for testJsF" />
+		</p:dialog>
+		<h:form>
 		    <p:panel id="panel" header="New User">
 		        <p:messages id="msgs" />
 		        <h:panelGrid columns="3" cellpadding="5">
@@ -25,8 +33,8 @@
 		            </p:inputText>
 		            <p:message for="lastname" id="msgLastname" display="icon" />
 		        </h:panelGrid>
-		        <p:commandButton value="Save" update="panel" action="#{login_Controller.save('toto','tata')}" icon="ui-icon-check" />
-		    </p:panel>
-	</h:form>
-		  </h:body>
+		        <p:commandButton value="Save" update="panel" icon="ui-icon-check" />
+		    </p:panel><!-- #{login_Controller.save('toto','tata')} -->
+		</h:form>
+	</h:body>
 </html>
