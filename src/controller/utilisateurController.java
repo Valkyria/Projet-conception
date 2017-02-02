@@ -9,10 +9,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 
-@ManagedBean(name="loginController")
+@ManagedBean(name="utilisateurController")
 @RequestScoped
 
-public class loginController {
+/* Lien entre la vue et le service*/
+public class utilisateurController 
+{
 	public static void adding_user (String nom){
     	Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();

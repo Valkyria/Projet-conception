@@ -2,8 +2,10 @@ package model_ORM;
 
 // Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1
 import javax.persistence.Entity;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 
