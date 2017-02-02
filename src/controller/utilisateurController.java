@@ -28,7 +28,7 @@ public class utilisateurController
 			System.out.println("Utilisateur inconnu");
 			
 		}
-		
+	
 		tx.commit();
     	session.close();
 	}	
