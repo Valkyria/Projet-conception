@@ -5,6 +5,13 @@ import org.hibernate.Transaction;
 import model_ORM.Utilisateur;
 import connector_DAO.HibernateSessionFactory;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+
+@ManagedBean(name="Factorielle")
+@RequestScoped
+
 public class Factorielle {
     public static String calculFactorielle (int valeur) throws Exception{
         String result = "";
@@ -26,6 +33,7 @@ public class Factorielle {
     	session.save(u);
     	tx.commit();
     	session.close();
+    	System.out.println("utilistaur update check database for testJsF");
     }
 }
 
