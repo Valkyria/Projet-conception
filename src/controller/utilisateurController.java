@@ -31,7 +31,7 @@ public class utilisateurController
     	session.close();
     }
 	
-	public static void userSave(String mail)
+	public static void userGet(String mail)
 	{
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
@@ -41,9 +41,6 @@ public class utilisateurController
 		for( Utilisateur user : u){
 			System.out.println("Utilisateur = "+user.getNomUtilisateur());
 		}
-		//System.out.println("Utilisateur = "+u.getNomUtilisateur());
-		//session.save(u);
-		//tx.commit();
 		session.close();
 	}
 	
