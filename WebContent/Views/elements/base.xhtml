@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<!--  DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+    
+   -->
+   
+   <!DOCTYPE html>
+<html lang="fr"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primeface.org/ui">
+    <h:head>
+        <title>test Fazia</title>
+    </h:head>
+    <h:body>
+        <h1>Test include</h1>
+        <p>Master page blah blah lorem ipsum</p>
+         <div id="header">Header  111 </div>
+        <div id="title"> title  111 </div>
+        <div id="menu">Menu222</div>
+        <div id="content"><ui:insert name="content">Default content</ui:insert></div>
+       
+    </h:body>
+</html>
