@@ -9,11 +9,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 
-@ManagedBean(name="utilisateurController")
+@ManagedBean(name="reservationController")
 @RequestScoped
 
 /* Lien entre la vue et le service*/
-public class utilisateurController 
+public class reservationController 
 {
 	
 }
