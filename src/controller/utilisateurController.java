@@ -22,7 +22,7 @@ public class utilisateurController
 		utilisateurService uServ = new utilisateurService();
 	
 		if(uServ.authentification(login)){
-			System.out.println("Le login est correct et");
+			System.out.println("Le login est correct");
 		}
 		else{
 			System.out.println("Utilisateur inconnu");

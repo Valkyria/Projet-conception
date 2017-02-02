@@ -24,15 +24,14 @@ public class utilisateurService
 	@SuppressWarnings("deprecation")
 	public boolean authentification(String login)
 	{
-		System.out.println("Je suis dans la fonciton");
 		Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();
     	
     	Criteria criteria = session.createCriteria(Utilisateur.class);
     	criteria.add(Restrictions.eq("login", login));
-    	
     	Object result = criteria.uniqueResult();
-        if (result != null) 
+        
+    	if (result != null) 
         {
             Utilisateur user = (Utilisateur) result;
             System.out.println("Login user = " + user.getLogin());
