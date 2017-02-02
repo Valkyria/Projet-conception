@@ -16,6 +16,7 @@ public class Annonce implements java.io.Serializable {
 	private Date dateFinAnnonce;
 	private int nbPlaces;
 	private int idRestaurant;
+	private String nomAnnonce;
 	private Set reservations = new HashSet(0);
 	private Set creneaus = new HashSet(0);
 
@@ -23,7 +24,7 @@ public class Annonce implements java.io.Serializable {
 	}
 
 	public Annonce(Restaurateur restaurateur, Date dateDebutAnnonce, Date dateFinAnnonce, int nbPlaces,
-			int idRestaurant) {
+			int idRestaurant, String nomAnnonce) {
 		this.restaurateur = restaurateur;
 		this.dateDebutAnnonce = dateDebutAnnonce;
 		this.dateFinAnnonce = dateFinAnnonce;
@@ -32,7 +33,7 @@ public class Annonce implements java.io.Serializable {
 	}
 
 	public Annonce(Restaurateur restaurateur, Date dateDebutAnnonce, Date dateFinAnnonce, int nbPlaces,
-			int idRestaurant, Set reservations, Set creneaus) {
+			int idRestaurant, String nomAnnonce, Set reservations, Set creneaus) {
 		this.restaurateur = restaurateur;
 		this.dateDebutAnnonce = dateDebutAnnonce;
 		this.dateFinAnnonce = dateFinAnnonce;
@@ -89,7 +90,12 @@ public class Annonce implements java.io.Serializable {
 	public void setIdRestaurant(int idRestaurant) {
 		this.idRestaurant = idRestaurant;
 	}
-
+	public String getNomAnnonce(){
+		return this.nomAnnonce;
+	}
+	public String setNomAnnonce(String nomAnnonce){
+		return this.nomAnnonce = nomAnnonce;
+	}
 	public Set getReservations() {
 		return this.reservations;
 	}

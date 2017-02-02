@@ -12,6 +12,7 @@ public class Menu implements java.io.Serializable {
 	private Integer idMenu;
 	private Reduction reduction;
 	private double prixMenu;
+	private String nomMenu;
 	private Set plats = new HashSet(0);
 
 	public Menu() {
@@ -51,7 +52,12 @@ public class Menu implements java.io.Serializable {
 	public void setPrixMenu(double prixMenu) {
 		this.prixMenu = prixMenu;
 	}
-
+	public String getNomMenu(){
+		return this.nomMenu;
+	}
+	public void setNomMenu(String nomMenu){
+		this.nomMenu = nomMenu;
+	}
 	public Set getPlats() {
 		return this.plats;
 	}

@@ -14,6 +14,9 @@
         <property name="prixMenu" type="double">
             <column name="prixMenu" precision="22" scale="0" not-null="true" />
         </property>
+        <property name="nomMenu" type="string">
+            <column name="nomMenu" length="50" not-null="false" />
+        </property>
         <set name="plats" table="plat" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idMenu" not-null="true" />

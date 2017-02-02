@@ -23,6 +23,9 @@
         <property name="idRestaurant" type="int">
             <column name="idRestaurant" not-null="true" />
         </property>
+        <property name="nomAnnonce" type="string">
+            <column name="nomAnnonce" length="50" not-null="true" />
+        </property>
         <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idAnnonce" not-null="true" />
