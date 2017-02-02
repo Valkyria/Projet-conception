@@ -33,7 +33,6 @@ public class Factorielle {
     	session.save(u);
     	tx.commit();
     	session.close();
-    	System.out.println("utilistaur update check database for testJsF");
     }
 }
 

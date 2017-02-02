@@ -1,6 +1,2 @@
-/connector_DAO/
 /controller/
-/model_ORM/
-/Factorielle.class
-/affichageFactorielle.jsp
-/services/
+/connector_DAO/

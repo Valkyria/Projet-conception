@@ -5,7 +5,7 @@
     xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
         <title>la fourchette</title>
 
     </h:head>
@@ -16,10 +16,12 @@
 
         <h:form>
 
-			<p:commandButton value="Tester la base" action="#{Factorielle.adding_user('testJsF')}" styleClass="ui-priority-primary" />
+			<p:commandButton value="Tester la base" action="#{Factorielle.adding_user('testJsF')}" styleClass="ui-priority-primary" onclick="PF('dlg3').show();" />
 				
         </h:form>
-
+		<p:dialog header="update done" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+    		<h:outputText value="utilistaur update check database for testJsF" />
+		</p:dialog>
     </h:body>
 	
 </html>

@@ -14,7 +14,7 @@ public class HibernateSessionFactory {
  static {
    try {
    // Crée la SessionFactory
-	   Configuration configuration = new Configuration().configure();
+	   Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 	   configuration.addClass(model_ORM.Annonce.class);
 	   configuration.addClass(model_ORM.Categorie.class);
 	   configuration.addClass(model_ORM.Client.class);
@@ -32,9 +32,6 @@ public class HibernateSessionFactory {
 	   
 	   ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 	   sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-   
-	   //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-	   //sessionFactory = configuration.buildSessionFactory(builder.build());
 	   
 	   //sessionFactory = configuration.buildSessionFactory();
 	   //sessionFactory = new Configuration().configure().buildSessionFactory();
