@@ -2,10 +2,10 @@ package services;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.hibernate.criterion.Restrictions;
 import connector_DAO.HibernateSessionFactory;
 import model_ORM.Utilisateur;
 
@@ -16,18 +16,34 @@ import model_ORM.Utilisateur;
 
 public class utilisateurService 
 {
-	public void authentification()
+	public utilisateurService() 
 	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	@SuppressWarnings("deprecation")
+	public boolean authentification(String login)
+	{
+		System.out.println("Je suis dans la fonciton");
 		Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();
     	
+    	Criteria criteria = session.createCriteria(Utilisateur.class);
+    	criteria.add(Restrictions.eq("login", login));
     	
-    	
-    	
-    	/*Utilisateur u = new Utilisateur(nom,"fazia","0681813399","104 rue test", "mail@mail.com", "mdp0000");
-    	u.setPrenomUtilisateur(nom);
-    	session.save(u);
-    	tx.commit();*/
-    	session.close();
+    	Object result = criteria.uniqueResult();
+        if (result != null) 
+        {
+            Utilisateur user = (Utilisateur) result;
+            System.out.println("Login user = " + user.getLogin());
+            tx.commit();
+            session.save(user);
+        	session.close();
+            return true;    
+        }
+        else
+        {
+        	return false;
+        }
 	}
 }
