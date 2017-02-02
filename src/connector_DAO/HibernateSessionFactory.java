@@ -33,8 +33,6 @@ public class HibernateSessionFactory {
 	   ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 	   sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	   
-	   //sessionFactory = configuration.buildSessionFactory();
-	   //sessionFactory = new Configuration().configure().buildSessionFactory();
    } 
    catch (HibernateException ex) {
 	   throw new RuntimeException("Problème de configuration : "+ ex.getMessage(), ex);
