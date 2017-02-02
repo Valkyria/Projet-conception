@@ -31,8 +31,6 @@ public class HibernateSessionFactory {
 	   configuration.addClass(model_ORM.Ville.class);
 	   
 	   ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-
-	   // builds a session factory from the service registry
 	   sessionFactory = configuration.buildSessionFactory(serviceRegistry);
    
 	   //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
