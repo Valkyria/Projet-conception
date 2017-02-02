@@ -9,6 +9,8 @@ import services.utilisateurService;
 import connector_DAO.HibernateSessionFactory;
 import model_ORM.Utilisateur;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import services.utilisateurService;
@@ -35,10 +37,13 @@ public class utilisateurController
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Utilisateur.class);
 		cr.add(Restrictions.eq("login", mail));
-		Utilisateur u = (Utilisateur)cr.uniqueResult();
-		System.out.println("Utilisateur = "+u.getNomUtilisateur());
-		session.save(u);
-		tx.commit();
+		List <Utilisateur> u = (List<Utilisateur>)cr.list();
+		for( Utilisateur user : u){
+			System.out.println("Utilisateur = "+user.getNomUtilisateur());
+		}
+		//System.out.println("Utilisateur = "+u.getNomUtilisateur());
+		//session.save(u);
+		//tx.commit();
 		session.close();
 	}
 	
