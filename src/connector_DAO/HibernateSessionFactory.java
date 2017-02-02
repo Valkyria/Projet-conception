@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
+import org.hibernate.service.ServiceRegistry;
 
 public class HibernateSessionFactory {
 
@@ -30,8 +30,13 @@ public class HibernateSessionFactory {
 	   configuration.addClass(model_ORM.Utilisateur.class);
 	   configuration.addClass(model_ORM.Ville.class);
 	   
-	   StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-	   sessionFactory = configuration.buildSessionFactory(builder.build());
+	   ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+
+	   // builds a session factory from the service registry
+	   sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+   
+	   //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+	   //sessionFactory = configuration.buildSessionFactory(builder.build());
 	   
 	   //sessionFactory = configuration.buildSessionFactory();
 	   //sessionFactory = new Configuration().configure().buildSessionFactory();
