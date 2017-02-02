@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 
-@ManagedBean
+@ManagedBean(name="utilisateur")
 @RequestScoped
 @Entity
 public class Utilisateur implements java.io.Serializable {

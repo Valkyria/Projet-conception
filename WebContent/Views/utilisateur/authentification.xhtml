@@ -13,19 +13,14 @@
 			        <p:messages id="msgs" />
 			        <h:panelGrid columns="3" cellpadding="5">
 			            <p:outputLabel for="firstname" value="Firstname:" />
-			            <p:inputText id="firstname" value="" required="true" label="Firstname">
-			                <f:validateLength minimum="2" />
+			            <p:inputText id="firstname" value="#{utilisateur.nomUtilisateur}" required="true" label="Firstname">
 			            </p:inputText>
-			            <p:message for="firstname" display="icon" />
 			 
 			            <p:outputLabel for="lastname" value="Lastname:" />
-			            <p:inputText id="lastname" value="" label="Lastname" required="true">
-			                <f:validateLength minimum="2" />
-			                <p:ajax update="msgLastname" event="keyup" />
+			            <p:inputText id="lastname" value="#{utilisateur.prenomUtilisateur}" label="Lastname" required="true">
 			            </p:inputText>
-			            <p:message for="lastname" id="msgLastname" display="icon" />
 			        </h:panelGrid>
-			        <p:commandButton value="Save" update="panel" action="#{utilisateurController.verifAuth('test')}" icon="ui-icon-check" />
+			        <p:commandButton  actionListener="#{utilisateurController.verifAuth('test')}"/>
 			    </p:panel>
 		</h:form>
 	</h:body>
