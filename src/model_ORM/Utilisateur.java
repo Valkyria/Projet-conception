@@ -2,6 +2,13 @@ package model_ORM;
 
 // Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1
 import javax.persistence.Entity;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+import connector_DAO.HibernateSessionFactory;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -121,4 +128,14 @@ public class Utilisateur implements java.io.Serializable {
 		this.client = client;
 	}
 
+	public Utilisateur getUtilisateur()
+	{
+		Session session = HibernateSessionFactory.currentSession();
+		Criteria cr = session.createCriteria(Utilisateur.class);
+		cr.add(Restrictions.eq("login", "mail@mail.com"));
+		Utilisateur u = (Utilisateur)cr.uniqueResult();
+		
+		System.out.println("Utilisateur = "+u.getNomUtilisateur());
+		return(u);
+	}
 }

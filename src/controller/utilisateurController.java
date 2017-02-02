@@ -1,7 +1,10 @@
 package controller;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
 import services.utilisateurService;
 import connector_DAO.HibernateSessionFactory;
 import model_ORM.Utilisateur;
@@ -26,10 +29,22 @@ public class utilisateurController
     	session.close();
     }
 	
-	public void verifAuth(String login)
+	public static void userSave(String mail)
 	{
 		Session session = HibernateSessionFactory.currentSession();
-    	Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
+		Criteria cr = session.createCriteria(Utilisateur.class);
+		cr.add(Restrictions.eq("login", mail));
+		Utilisateur u = (Utilisateur)cr.uniqueResult();
+		System.out.println("Utilisateur = "+u.getNomUtilisateur());
+		session.save(u);
+		tx.commit();
+		session.close();
+	}
+	
+	/*public void verifAuth(String login)
+	{
+		Session session = HibernateSessionFactory.currentSession();
 		utilisateurService uServ = new utilisateurService();
 	
 		if(uServ.authentification(login)){
@@ -37,10 +52,11 @@ public class utilisateurController
 		}
 		else{
 			System.out.println("Utilisateur inconnu");
-			
 		}
+		
+		session.close();
+	}	*/
 	
-		tx.commit();
-    	session.close();
-	}	
+	
+
 }

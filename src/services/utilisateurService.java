@@ -42,6 +42,8 @@ public class utilisateurService
         }
         else
         {
+        	tx.commit();
+        	session.close();
         	return false;
         }
 	}

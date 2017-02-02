@@ -9,18 +9,18 @@
     </h:head>
     <h:body>
 		<h:form>
-			    <p:panel id="panel" header="New User">
+			    <p:panel id="panel" header="Log In">
 			        <p:messages id="msgs" />
 			        <h:panelGrid columns="3" cellpadding="5">
-			            <p:outputLabel for="firstname" value="Firstname:" />
-			            <p:inputText id="firstname" value="#{utilisateur.nomUtilisateur}" required="true" label="Firstname">
+			            <p:outputLabel for="firstname" value="Login:" />
+			            <p:inputText id="firstname" value="#{utilisateur.nomUtilisateur}" required="true" label="Login">
 			            </p:inputText>
 			 
-			            <p:outputLabel for="lastname" value="Lastname:" />
-			            <p:inputText id="lastname" value="#{utilisateur.prenomUtilisateur}" label="Lastname" required="true">
+			            <p:outputLabel for="lastname" value="Mot de passe:" />
+			            <p:inputText id="lastname" value="#{utilisateur.prenomUtilisateur}" label="Mot de passe" required="true">
 			            </p:inputText>
 			        </h:panelGrid>
-			        <p:commandButton  actionListener="#{utilisateurController.verifAuth('test')}"/>
+			        <p:commandButton  actionListener="#{utilisateurController.userSave('mail@mail.com')}"/>
 			    </p:panel>
 		</h:form>
 	</h:body>

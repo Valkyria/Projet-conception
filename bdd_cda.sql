@@ -1,32 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Jeu 02 Février 2017 à 21:56
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données :  `bdd_cda`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `annonce`
---
-
-CREATE TABLE `annonce` (
+CREATE TABLE `bdd_cda`.`annonce` (
   `idAnnonce` int(11) NOT NULL,
   `dateDebutAnnonce` date NOT NULL,
   `dateFinAnnonce` date NOT NULL,
@@ -114,7 +91,7 @@ CREATE TABLE `menu` (
   `idMenu` int(11) NOT NULL,
   `prixMenu` double NOT NULL,
   `idReduction` int(11) NOT NULL,
-  `nomMenu` int(50) NOT NULL
+  `nomMenu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -122,7 +99,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idMenu`, `prixMenu`, `idReduction`, `nomMenu`) VALUES
-(1, 21.3, 1, 0);
+(1, 21.3, 1, '0');
 
 -- --------------------------------------------------------
 
