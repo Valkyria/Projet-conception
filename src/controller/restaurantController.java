@@ -34,7 +34,9 @@ public class restaurantController
         //restaurateur = (Restaurateur) ec.getRequestMap().get("restaurateur");
         tpsmoyen = (Tpsmoyenrepas) ec.getRequestMap().get("tpsmoyenrepas");
         restaurant = (Restaurant) ec.getRequestMap().get("restaurant");
-        //System.out.println("getmethod");
+        tpsmoyen.save();
+        restaurant.setTpsmoyenrepas(tpsmoyen);
+        restaurant.save();
         System.out.println(tpsmoyen.getDureeEvenement());
 	}
 }

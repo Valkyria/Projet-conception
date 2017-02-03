@@ -8,6 +8,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import connector_DAO.HibernateSessionFactory;
+import services.utilityService;
 
 
 @ManagedBean(name="tpsmoyenrepas")
@@ -67,6 +76,13 @@ public class Tpsmoyenrepas implements java.io.Serializable {
 
 	public void setRestaurants(Set restaurants) {
 		this.restaurants = restaurants;
+	}
+	public void save(){
+	    Session session = HibernateSessionFactory.currentSession();
+	    Transaction tx = session.beginTransaction();
+		session.save(this);
+	    tx.commit();
+	    session.close();
 	}
 
 }
