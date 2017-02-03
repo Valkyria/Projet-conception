@@ -13,7 +13,7 @@ public class HibernateSessionFactory {
 
  static {
    try {
-   // Crée la SessionFactory
+   // Crï¿½e la SessionFactory
 	   Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 	   configuration.addClass(model_ORM.Annonce.class);
 	   configuration.addClass(model_ORM.Categorie.class);
@@ -35,7 +35,7 @@ public class HibernateSessionFactory {
 	   
    } 
    catch (HibernateException ex) {
-	   throw new RuntimeException("Problème de configuration : "+ ex.getMessage(), ex);
+	   throw new RuntimeException("Probleme de configuration : "+ ex.getMessage(), ex);
    }
 }
 

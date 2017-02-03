@@ -149,12 +149,15 @@ public class Utilisateur implements java.io.Serializable {
 		cr.add(Restrictions.eq("login", login));
 		cr.add(Restrictions.eq("motdePasse", motdePasse));
 		Utilisateur u = (Utilisateur) cr.uniqueResult();
+		//System.out.println(login);
 		//System.out.println("Utilisateur = "+ u.getNomUtilisateur());
 		tx.commit();
 		session.close();
+		
 		return u;
 	}
-	public void addUtilisateur (ActionEvent e){
+	
+	public void addUtilisateur(ActionEvent e){
 		utilityService util = new utilityService();
     	Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();
@@ -168,4 +171,51 @@ public class Utilisateur implements java.io.Serializable {
     	tx.commit();
     	session.close();
     }
+	
+	/* Fonction qui permet de modifier un utilisateur en base */
+	/*public void updateUtilisateur(ActionEvent e)
+	{
+		
+		String encrypted_pw;
+		utilityService util = new utilityService();
+		Session session = HibernateSessionFactory.currentSession();
+		Transaction tx = session.beginTransaction();
+		Utilisateur u;
+		
+		try 
+		{
+			if(login.isEmpty() || motdePasse.isEmpty())
+			{
+				
+			}
+			u = (Utilisateur) session.createCriteria(Utilisateur.class).add(Restrictions.eq("idUtilisateur", idUtilisateur)).uniqueResult();
+			session.delete(u);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		session.update(this);
+		tx.commit();
+		session.close();
+	
+	}*/
+	
+	/* Fonction qui permet de supprimer un utilisateur */
+	public void deleteUtilisateur(ActionEvent e)
+	{
+		
+		Session session = HibernateSessionFactory.currentSession();
+		Transaction tx = session.beginTransaction();
+		Utilisateur u;
+		
+		/* On récupère l'identifiant de l'utilisateur connecté  et on le supprime de la base de donnée */
+		u = (Utilisateur) session.createCriteria(Utilisateur.class).add(Restrictions.eq("idUtilisateur", idUtilisateur)).uniqueResult();
+		session.delete(u);
+			
+		tx.commit();
+		session.close();
+	}
+	
+	
 }

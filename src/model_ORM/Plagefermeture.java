@@ -10,20 +10,20 @@ import java.util.Set;
 public class Plagefermeture implements java.io.Serializable {
 
 	private Integer idPlageFermeture;
-	private String débutPlage;
+	private String dÃ©butPlage;
 	private String finPlage;
 	private Set restaurants = new HashSet(0);
 
 	public Plagefermeture() {
 	}
 
-	public Plagefermeture(String débutPlage, String finPlage) {
-		this.débutPlage = débutPlage;
+	public Plagefermeture(String dÃ©butPlage, String finPlage) {
+		this.dÃ©butPlage = dÃ©butPlage;
 		this.finPlage = finPlage;
 	}
 
-	public Plagefermeture(String débutPlage, String finPlage, Set restaurants) {
-		this.débutPlage = débutPlage;
+	public Plagefermeture(String dÃ©butPlage, String finPlage, Set restaurants) {
+		this.dÃ©butPlage = dÃ©butPlage;
 		this.finPlage = finPlage;
 		this.restaurants = restaurants;
 	}
@@ -36,12 +36,12 @@ public class Plagefermeture implements java.io.Serializable {
 		this.idPlageFermeture = idPlageFermeture;
 	}
 
-	public String getDébutPlage() {
-		return this.débutPlage;
+	public String getDÃ©butPlage() {
+		return this.dÃ©butPlage;
 	}
 
-	public void setDébutPlage(String débutPlage) {
-		this.débutPlage = débutPlage;
+	public void setDÃ©butPlage(String dÃ©butPlage) {
+		this.dÃ©butPlage = dÃ©butPlage;
 	}
 
 	public String getFinPlage() {
