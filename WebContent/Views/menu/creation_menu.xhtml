@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+        <title> La Fourchette </title>
+    </h:head>
+    <h:body>
+		<h:form>
+			    <p:panel id="panel" header="Creation d'un compte">
+			        <p:messages id="messages"  autoUpdate="true" />
+			        <h:panelGrid columns="2" cellpadding="5">
+			            
+			            <p:outputLabel for="nom" value="Nom :" />
+			            <p:inputText id="nom" value="#{menu.nomMenu}" required="true" label="Nom">
+			            </p:inputText>
+			 
+			            <p:outputLabel for="prix" value="Prix :" />
+			            <p:inputText id="prix" value="#{menu.prixMenu}" label="Prix" required="true">
+			            </p:inputText>
+			            
+			        </h:panelGrid>
+			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{menuController.createMenu}"/>
+			    </p:panel>
+		</h:form>
+	</h:body>
+</html>
