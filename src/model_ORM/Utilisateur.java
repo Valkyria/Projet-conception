@@ -133,7 +133,7 @@ public class Utilisateur implements java.io.Serializable {
 		this.client = client;
 	}
 
-	public void getUtilisateur(ActionEvent event)
+	public Utilisateur getUtilisateur(ActionEvent event)
 	{
 		String encrypted_pw;
 		
@@ -149,9 +149,10 @@ public class Utilisateur implements java.io.Serializable {
 		cr.add(Restrictions.eq("login", login));
 		cr.add(Restrictions.eq("motdePasse", motdePasse));
 		Utilisateur u = (Utilisateur) cr.uniqueResult();
-		System.out.println("Utilisateur = "+ u.getNomUtilisateur());
+		//System.out.println("Utilisateur = "+ u.getNomUtilisateur());
 		tx.commit();
 		session.close();
+		return u;
 	}
 	public void addUtilisateur (ActionEvent e){
 		utilityService util = new utilityService();

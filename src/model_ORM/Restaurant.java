@@ -160,5 +160,8 @@ public class Restaurant implements java.io.Serializable {
 	public void setCategories(Set categories) {
 		this.categories = categories;
 	}
+	public Restaurant getRestaurant(){
+		return this;
+	}
 
 }
