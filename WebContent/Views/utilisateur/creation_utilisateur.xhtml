@@ -11,16 +11,7 @@
 		<h:form>
 			    <p:panel id="panel" header="Creation d'un compte">
 			        <p:messages id="messages" showDetail="true" autoUpdate="true" />
-			        <h:panelGrid cellpadding="5">
-			            <p:outputLabel for="login" value="Mail:" />
-			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
-			            </p:inputText>
-			 
-			            <h:outputLabel for="mdp" value="Mot de passe:" />
-			            <p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="Mot de passe:" required="true" feedback="true" />
-			            
-			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
-			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe:" />
+			        <h:panelGrid columns="2" cellpadding="5">
 			            
 			            <p:outputLabel for="nom" value="Nom:" />
 			            <p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom">
@@ -37,6 +28,16 @@
 			            <p:outputLabel for="addresse" value="Addresse:" />
 			            <p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true">
 			            </p:inputText>
+			            
+			            <p:outputLabel for="login" value="Mail:" />
+			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
+			            </p:inputText>
+			 
+			            <h:outputLabel for="mdp" value="Mot de passe:" />
+			            <p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="mot de passe" required="true" feedback="true" />
+			            
+			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
+			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe" />
 			            
 			        </h:panelGrid>
 			        <p:commandButton value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
