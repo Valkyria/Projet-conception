@@ -2,8 +2,6 @@
 
 build/
 *
-bin/
-
 /.settings
 
 .classpath
