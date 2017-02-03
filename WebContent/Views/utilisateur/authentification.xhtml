@@ -11,7 +11,7 @@
 		<h:form>
 			    <p:panel id="panel" header="Log In">
 			        <p:messages id="msgs" />
-			        <h:panelGrid columns="3" cellpadding="5">
+			        <h:panelGrid columns="2" cellpadding="5">
 			            <p:outputLabel for="login" value="Login:" />
 			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
 			            </p:inputText>
@@ -20,7 +20,7 @@
 			            <p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="Mot de passe" required="true" type="password">
 			            </p:inputText>
 			        </h:panelGrid>
-			        <p:commandButton  actionListener="#{utilisateur.getUtilisateur}"/>
+			        <p:commandButton  value="Envoyer" actionListener="#{utilisateur.getUtilisateur}"/>
 			    </p:panel>
 		</h:form>
 	</h:body>
