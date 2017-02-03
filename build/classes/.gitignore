@@ -1,3 +1,5 @@
+/connector_DAO/
 /controller/
-/services/
+/hibernate.cfg.xml
 /model_ORM/
+/services/
