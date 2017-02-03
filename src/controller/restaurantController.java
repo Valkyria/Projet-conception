@@ -28,15 +28,16 @@ public class restaurantController
 		Restaurateur restaurateur;
 		Tpsmoyenrepas tpsmoyen;
 		Restaurant restaurant;
-		System.out.println("getmethod");
+		restaurateur = new Restaurateur();
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         //utilisateur = (Utilisateur) ec.getRequestMap().get("utilisateur");
-        //restaurateur = (Restaurateur) ec.getRequestMap().get("restaurateur");
+        
         tpsmoyen = (Tpsmoyenrepas) ec.getRequestMap().get("tpsmoyenrepas");
         restaurant = (Restaurant) ec.getRequestMap().get("restaurant");
-        tpsmoyen.save();
+        /*tpsmoyen.save();
+        restaurant.setRestaurateur(restaurateur.getRestaurateur(1));
         restaurant.setTpsmoyenrepas(tpsmoyen);
-        restaurant.save();
-        System.out.println(tpsmoyen.getDureeEvenement());
+        restaurant.save();*/
+        System.out.println(restaurateur.getRestaurateur(1).getUtilisateur().getPrenomUtilisateur());
 	}
 }
