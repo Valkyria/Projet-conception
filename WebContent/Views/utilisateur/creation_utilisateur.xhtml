@@ -1,28 +1,46 @@
-<ui:composition template="/Views/elements/base.xhtml"
- 	xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primeface.org/ui">
+<!DOCTYPE html>
 
-	<ui:define name="header">
-		header test parti utilisateur 333
-	</ui:define>
-		
-	<ui:define name="title">
-		Creation utilisateur
-	</ui:define>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="menu">
-		menu test parti utilisateur 444 
-	</ui:define>
-
-	<ui:define name="content">
-		<h1>Test, page de creation d'utilisateur --Cedric-- </h1>
-		<p>Blah blah</p>
-		<p:commandButton value="Tester la base" action="#{loginController.adding_user('testJsF')}" styleClass="ui-priority-primary" onclick="PF('dlg3').show();" />	
-		<p:dialog header="update done" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
-			<h:outputText value="Utilisteur update check database for testJsF" />
-		</p:dialog>
-	</ui:define>
-</ui:composition>
+    <h:head>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+        <title> La Fourchette </title>
+    </h:head>
+    <h:body>
+		<h:form>
+			    <p:panel id="panel" header="Creation d'un compte">
+			        <p:messages id="messages" showDetail="true" autoUpdate="true" />
+			        <h:panelGrid cellpadding="5">
+			            <p:outputLabel for="login" value="Mail:" />
+			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
+			            </p:inputText>
+			 
+			            <h:outputLabel for="mdp" value="Mot de passe:" />
+			            <p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="Mot de passe:" required="true" feedback="true" />
+			            
+			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
+			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe:" />
+			            
+			            <p:outputLabel for="nom" value="Nom:" />
+			            <p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom">
+			            </p:inputText>
+			 
+			            <p:outputLabel for="prenom" value="Prenom:" />
+			            <p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true">
+			            </p:inputText>
+			            
+			            <p:outputLabel for="tel" value="Telephone:" />
+			            <p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone">
+			            </p:inputText>
+			 
+			            <p:outputLabel for="addresse" value="Addresse:" />
+			            <p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true">
+			            </p:inputText>
+			            
+			        </h:panelGrid>
+			        <p:commandButton value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
+			    </p:panel>
+		</h:form>
+	</h:body>
+</html>

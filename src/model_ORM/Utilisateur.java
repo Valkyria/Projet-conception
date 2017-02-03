@@ -153,4 +153,18 @@ public class Utilisateur implements java.io.Serializable {
 		tx.commit();
 		session.close();
 	}
+	public void addUtilisateur (ActionEvent e){
+		utilityService util = new utilityService();
+    	Session session = HibernateSessionFactory.currentSession();
+    	Transaction tx = session.beginTransaction();
+    	Utilisateur u;
+		try {
+			u = new Utilisateur(nomUtilisateur,prenomUtilisateur,telephoneUtilisateur,adresseUtilisateur, login, util.stringHash(motdePasse));
+			session.save(u);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+    	tx.commit();
+    	session.close();
+    }
 }
