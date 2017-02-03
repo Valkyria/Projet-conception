@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.annotations.Proxy;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import connector_DAO.HibernateSessionFactory;
 import services.utilityService;
@@ -172,7 +173,19 @@ public class Utilisateur implements java.io.Serializable {
 		
 		return null;
 	}
-	
+	public Utilisateur getUtilisateur(String mail)
+	{
+				
+		Session session = HibernateSessionFactory.currentSession();
+		Transaction tx = session.beginTransaction();
+		Criteria cr = session.createCriteria(Utilisateur.class);
+		cr.add(Restrictions.eq("login", mail));
+		Utilisateur u = (Utilisateur) cr.uniqueResult();
+		tx.commit();
+				
+		return u;
+
+	}
 	public void addUtilisateur(ActionEvent e){
 		utilityService util = new utilityService();
     	Session session = HibernateSessionFactory.currentSession();
@@ -187,7 +200,6 @@ public class Utilisateur implements java.io.Serializable {
 			e1.printStackTrace();
 		}
     	tx.commit();
-    	//session.close();
     }
 	
 	/* Fonction qui permet de modifier un utilisateur en base */
@@ -214,24 +226,18 @@ public class Utilisateur implements java.io.Serializable {
 		}
 	
 		tx.commit();
-		//session.close();
 	
 	}
 	
-	/* Fonction qui permet de supprimer un utilisateur */
 	public void deleteUtilisateur(ActionEvent e)
 	{
-		
+		Utilisateur u = this.getUtilisateur(login);
+
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
-		Utilisateur u;
-		
-		/* On récupère l'identifiant de l'utilisateur connecté  et on le supprime de la base de donnée */
-		u = new Utilisateur(login);
 		session.delete(u);
 			
 		tx.commit();
-		//session.close();
 	}
 	
 	
