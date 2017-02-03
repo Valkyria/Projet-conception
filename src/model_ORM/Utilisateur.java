@@ -173,7 +173,7 @@ public class Utilisateur implements java.io.Serializable {
     }
 	
 	/* Fonction qui permet de modifier un utilisateur en base */
-	/*public void updateUtilisateur(ActionEvent e)
+	public void updateUtilisateur(ActionEvent e)
 	{
 		
 		String encrypted_pw;
@@ -184,10 +184,10 @@ public class Utilisateur implements java.io.Serializable {
 		
 		try 
 		{
-			if(login.isEmpty() || motdePasse.isEmpty())
+			/*if(login.isEmpty() || motdePasse.isEmpty())
 			{
 				
-			}
+			}*/
 			u = (Utilisateur) session.createCriteria(Utilisateur.class).add(Restrictions.eq("idUtilisateur", idUtilisateur)).uniqueResult();
 			session.delete(u);
 			
@@ -199,7 +199,7 @@ public class Utilisateur implements java.io.Serializable {
 		tx.commit();
 		session.close();
 	
-	}*/
+	}
 	
 	/* Fonction qui permet de supprimer un utilisateur */
 	public void deleteUtilisateur(ActionEvent e)
