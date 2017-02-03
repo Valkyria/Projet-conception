@@ -162,9 +162,14 @@ public class Utilisateur implements java.io.Serializable {
     	Session session = HibernateSessionFactory.currentSession();
     	Transaction tx = session.beginTransaction();
     	Utilisateur u;
-		try {
+		try 
+		{
 			u = new Utilisateur(nomUtilisateur,prenomUtilisateur,telephoneUtilisateur,adresseUtilisateur, login, util.stringHash(motdePasse));
+			Criteria cr = session.createCriteria(Utilisateur.class);
+			cr.add(Restrictions.eq("login", login));
+			cr.add(Restrictions.eq("motdePasse", motdePasse));
 			session.save(u);
+			
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -184,18 +189,22 @@ public class Utilisateur implements java.io.Serializable {
 		
 		try 
 		{
-			/*if(login.isEmpty() || motdePasse.isEmpty())
-			{
-				
-			}*/
-			u = (Utilisateur) session.createCriteria(Utilisateur.class).add(Restrictions.eq("idUtilisateur", idUtilisateur)).uniqueResult();
-			session.delete(u);
+			encrypted_pw = util.stringHash(motdePasse);
+			
+			/* On récupère les logins et les mot de passes du formulaire, on récupère l'utilisateur correspondant et on le supprime */
+			Criteria cr = session.createCriteria(Utilisateur.class);
+			cr.add(Restrictions.eq("login", login));
+			cr.add(Restrictions.eq("motdePasse", motdePasse));
+			
+			u = (Utilisateur)cr.uniqueResult();
+			u.setLogin(login);
+			u.setMotdePasse(encrypted_pw);
+			session.update(u);
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		
-		session.update(this);
+	
 		tx.commit();
 		session.close();
 	
