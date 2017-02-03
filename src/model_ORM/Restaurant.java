@@ -184,7 +184,7 @@ public class Restaurant implements java.io.Serializable {
 		cr.add(Restrictions.eq("idRestaurateur", restaura));
 		Restaurant r = (Restaurant) cr.uniqueResult();
 		tx.commit();
-		session.close();
+		//session.close();
 		return r;
 	}
 	
@@ -217,7 +217,7 @@ public class Restaurant implements java.io.Serializable {
 		}
 		List <Restaurant> r = (List<Restaurant>) cr.list();
 		tx.commit();
-		session.close();
+		//session.close();
 		return r;
 	}
 	public void save(){
@@ -225,7 +225,7 @@ public class Restaurant implements java.io.Serializable {
 	    Transaction tx = session.beginTransaction();
 		session.save(this);
 	    tx.commit();
-	    session.close();
+	    //session.close();
 	}
 
 }

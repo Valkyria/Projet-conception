@@ -21,6 +21,10 @@
 			            <p:inputText id="addresse" value="#{restaurant.adresseRestaurant}" label="Addresse" required="true">
 			            </p:inputText>
 			            
+			            <p:outputLabel for="telephone" value="Telephone:" />
+			            <p:inputText id="telephone" value="#{restaurant.telephoneRestaurant}" label="Telephone" required="true">
+			            </p:inputText>
+			            
 			            <p:outputLabel for="email" value="Email du restaurant:" />
 			            <p:inputText id="email" value="#{restaurant.emailRestaurant}" required="true" label="Email du restaurant">
 			            </p:inputText>
@@ -32,10 +36,10 @@
             			<p:calendar id="closing" value="#{restaurant.heureFermetureRestaurant}" pattern="HH:mm:ss" timeOnly="true" required="true" />
             			
             			<p:outputLabel for="avgrepas" value="Temps moyen d'un repas:" />
-            			<p:calendar id="avgrepas" value="#{tpsmoyenrepas.dureeRepas}" pattern="HH:mm:ss" timeOnly="true" required="true" />
+            			<p:inputText id="avgrepas" value="#{tpsmoyenrepas.dureeRepas}" pattern="HH:mm:ss" timeOnly="true" required="true" />
             			
             			<p:outputLabel for="avgevt" value="Temps moyen d'un evenement:" />
-            			<p:calendar id="avgevt" value="#{tpsmoyenrepas.dureeEvenement}" pattern="HH:mm:ss" timeOnly="true" />
+            			<p:inputText id="avgevt" value="#{tpsmoyenrepas.dureeEvenement}" pattern="HH:mm:ss" timeOnly="true" />
             
 			        </h:panelGrid>
 			        <p:commandButton value="Envoyer" actionListener="#{restaurantController.createRestaurant}"/>

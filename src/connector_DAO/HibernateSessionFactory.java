@@ -29,7 +29,7 @@ public class HibernateSessionFactory {
 	   configuration.addClass(model_ORM.Tpsmoyenrepas.class);
 	   configuration.addClass(model_ORM.Utilisateur.class);
 	   configuration.addClass(model_ORM.Ville.class);
-	   
+	   configuration.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 	   ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 	   sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	   

@@ -82,7 +82,7 @@ public class Tpsmoyenrepas implements java.io.Serializable {
 	    Transaction tx = session.beginTransaction();
 		session.save(this);
 	    tx.commit();
-	    session.close();
+	    //session.close();
 	}
 
 }

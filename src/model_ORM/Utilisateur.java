@@ -162,7 +162,7 @@ public class Utilisateur implements java.io.Serializable {
 				Utilisateur u = (Utilisateur) cr.uniqueResult();
 				
 				tx.commit();
-				session.close();
+				//session.close();
 				
 				return u;
 				
@@ -187,7 +187,7 @@ public class Utilisateur implements java.io.Serializable {
 			e1.printStackTrace();
 		}
     	tx.commit();
-    	session.close();
+    	//session.close();
     }
 	
 	/* Fonction qui permet de modifier un utilisateur en base */
@@ -214,7 +214,7 @@ public class Utilisateur implements java.io.Serializable {
 		}
 	
 		tx.commit();
-		session.close();
+		//session.close();
 	
 	}
 	
@@ -231,7 +231,7 @@ public class Utilisateur implements java.io.Serializable {
 		session.delete(u);
 			
 		tx.commit();
-		session.close();
+		//session.close();
 	}
 	
 	

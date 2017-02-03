@@ -80,7 +80,7 @@ public class Restaurateur implements java.io.Serializable {
 		cr.add(Restrictions.eq("idRestaurateur", idRestaurateur));
 		Restaurateur rest = (Restaurateur) cr.uniqueResult();
 		tx.commit();
-		session.close();
+		//session.close();
 		
 		return rest;
 	}

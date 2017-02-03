@@ -1,5 +1,6 @@
 package controller;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -34,10 +35,10 @@ public class restaurantController
         
         tpsmoyen = (Tpsmoyenrepas) ec.getRequestMap().get("tpsmoyenrepas");
         restaurant = (Restaurant) ec.getRequestMap().get("restaurant");
-        /*tpsmoyen.save();
+        tpsmoyen.save();
         restaurant.setRestaurateur(restaurateur.getRestaurateur(1));
         restaurant.setTpsmoyenrepas(tpsmoyen);
-        restaurant.save();*/
+        restaurant.save();
         System.out.println(restaurateur.getRestaurateur(1).getUtilisateur().getPrenomUtilisateur());
 	}
 }
