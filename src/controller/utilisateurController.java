@@ -46,4 +46,7 @@ public class utilisateurController
 		}
 		return "gtfo";
 	}
+	public void logout(){
+		
+	}
 }

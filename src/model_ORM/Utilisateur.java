@@ -163,7 +163,6 @@ public class Utilisateur implements java.io.Serializable {
 				Utilisateur u = (Utilisateur) cr.uniqueResult();
 				
 				tx.commit();
-				//session.close();
 				
 				return u;
 				
@@ -224,7 +223,6 @@ public class Utilisateur implements java.io.Serializable {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-	
 		tx.commit();
 	
 	}

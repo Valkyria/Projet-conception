@@ -33,4 +33,10 @@ public class sessionService {
 	public HttpSession getSession(){
 		return this.session;
 	}
+	
+	public void endSession(){
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		this.session = (HttpSession) facesContext.getExternalContext().getSession(false);
+		this.session.invalidate();
+	}
 }
