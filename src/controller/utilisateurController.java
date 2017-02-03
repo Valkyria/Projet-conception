@@ -2,6 +2,7 @@ package controller;
 
 import model_ORM.Utilisateur;
 
+import java.io.IOException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -24,10 +25,20 @@ public class utilisateurController
 			sessionService session = new sessionService();
 			session.newSession(u);
 			if(session.getSession().getAttribute("pro") != null){
-				return "propage";
+				System.out.println("ok boss");
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 			else{
-				return "clientpage";
+				System.out.println("ok client");
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		else{
