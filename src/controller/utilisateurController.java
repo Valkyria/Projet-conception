@@ -31,23 +31,4 @@ public class utilisateurController
     	session.close();
     }
 	
-	
-	
-	/*public void verifAuth(String login)
-	{
-		Session session = HibernateSessionFactory.currentSession();
-		utilisateurService uServ = new utilisateurService();
-	
-		if(uServ.authentification(login)){
-			System.out.println("Le login est correct");
-		}
-		else{
-			System.out.println("Utilisateur inconnu");
-		}
-		
-		session.close();
-	}	*/
-	
-	
-
 }

@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import connector_DAO.HibernateSessionFactory;
+import services.utilityService;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import services.utilityService;
 
 
 @ManagedBean(name="utilisateur")
@@ -133,7 +135,14 @@ public class Utilisateur implements java.io.Serializable {
 
 	public void getUtilisateur(ActionEvent event)
 	{
-		System.out.println("login = "+ login);
+		String encrypted_pw;
+		
+		utilityService util = new utilityService();
+		try {
+			encrypted_pw = util.stringHash(motdePasse);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Utilisateur.class);
@@ -141,6 +150,7 @@ public class Utilisateur implements java.io.Serializable {
 		cr.add(Restrictions.eq("motdePasse", motdePasse));
 		Utilisateur u = (Utilisateur) cr.uniqueResult();
 		System.out.println("Utilisateur = "+ u.getNomUtilisateur());
+		tx.commit();
 		session.close();
 	}
 }
