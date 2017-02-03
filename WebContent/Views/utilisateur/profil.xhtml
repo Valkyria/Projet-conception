@@ -9,31 +9,27 @@
     </h:head>
     <h:body>
     <h3 style="margin-top:0">Profil</h3>
-    <p:tabView orientation="top">
+    <p:tabView orientation="left">
         <p:tab title="Mes Informations">
             <h:panelGrid columns="2" cellpadding="10">
                 <!-- <h:outputText value="" /> -->
             </h:panelGrid>
         </p:tab>
         <p:tab title="Paramètres">
-            <h:panelGrid columns="2" cellpadding="10">
-            	<p:commandButton  value="Modifier le compte" update="growl"  actionListener=""       styleClass="ui-priority-primary""/>        
-            </h:panelGrid>
-        </p:tab>
-        
-        	<p:outputLabel for="nom" value="Mail:" />
-	            <p:inputText id="nom" value="#{utilisateur.login}" required="true" label="Nom">
-	            </p:inputText>
-	 
-	            <p:outputLabel for="prenom" value="Mot de passe:" />
-	            <p:inputText id="prenom" value="#{utilisateur.motdePasse}" label="Prenom" required="true">
+          <h:form>
+        		<p:outputLabel for="mail" value="Mail:" />
+	            	<p:inputText id="mail" value="#{utilisateur.login}" required="true" label="mail" />
+	            		 
+	            <!-- <p:outputLabel for="mdp" value="Mot de passe:" />
+	            	<p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="mdp" required="true">
 	            </p:inputText>
 	            
 	            <p:outputLabel for="tel" value="Confirmation mot de passe" />
-	            <p:inputText id="tel" value="#{utilisateur.motdePasse}" required="true" label="Telephone">
-	            </p:inputText>
-	            
-	 			<!--  <p:commandButton  value="Supprimer le compte" actionListener="#{utilisateur.getUtilisateur}"/> -->
+	            	<p:inputText id="tel" value="#{utilisateur.motdePasse}" required="true" label="Telephone" />
+            		-->     
+	 		  		<p:commandLink id="ajax" value="Envoyer" actionListener="#{utilisateur.deleteUtilisateur}"/>
+	 	</h:form>
+	 	</p:tab>
     </p:tabView> 
 	</h:body>
 </html>
