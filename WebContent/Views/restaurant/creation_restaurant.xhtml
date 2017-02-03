@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+        <title> La Fourchette </title>
+    </h:head>
+    <h:body>
+		<h:form>
+			    <p:panel id="panel" header="Creation d'un restaurant">
+			        <p:messages id="messages"  autoUpdate="true" />
+			        <h:panelGrid columns="2" cellpadding="5">
+			            
+			            <p:outputLabel for="nom" value="Nom:" />
+			            <p:inputText id="nom" value="#{restaurant.nomRestaurant}" required="true" label="Nom">
+			            </p:inputText>
+			 
+			            <p:outputLabel for="addresse" value="Addresse:" />
+			            <p:inputText id="addresse" value="#{restaurant.adresseRestaurant}" label="Addresse" required="true">
+			            </p:inputText>
+			            
+			            <p:outputLabel for="telephone" value="Telephone:" />
+			            <p:inputText id="telephone" value="#{restaurant.telephoneRestaurant}" label="Telephone" required="true">
+			            </p:inputText>
+			            
+			            <p:outputLabel for="email" value="Email du restaurant:" />
+			            <p:inputText id="email" value="#{restaurant.emailRestaurant}" required="true" label="Email du restaurant">
+			            </p:inputText>
+        				
+        				<p:outputLabel for="openning" value="Heure d'ouverture:" />
+            			<p:calendar id="openning" value="#{restaurant.heureOuvertureRestaurant}" pattern="HH:mm:ss" timeOnly="true" required="true" />
+            			
+            			<p:outputLabel for="closing" value="Heure de fermeture:" />
+            			<p:calendar id="closing" value="#{restaurant.heureFermetureRestaurant}" pattern="HH:mm:ss" timeOnly="true" required="true" />
+            			
+            			<p:outputLabel for="avgrepas" value="Temps moyen d'un repas:" />
+            			<p:inputNumber id="avgrepas" value="#{tpsmoyenrepas.dureeRepas}" pattern="HH:mm:ss" timeOnly="true" required="true" />
+            			
+            			<p:outputLabel for="avgevt" value="Temps moyen d'un evenement:" />
+            			<p:inputNumber id="avgevt" value="#{tpsmoyenrepas.dureeEvenement}" pattern="HH:mm:ss" timeOnly="true" />
+            
+			        </h:panelGrid>
+			        <p:commandButton value="Envoyer" actionListener="#{restaurantController.createRestaurant}"/>
+			    </p:panel>
+		</h:form>
+	</h:body>
+</html>

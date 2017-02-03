@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+        <title> La Fourchette </title>
+    </h:head>
+    <h:body>
+		<h:form>
+			    <p:panel id="panel" header="Log In">
+			        <p:messages id="msgs" />
+			        <h:panelGrid columns="2" cellpadding="5">
+			            <p:outputLabel for="login" value="Login:" />
+			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
+			            </p:inputText>
+			 
+			            <p:outputLabel for="mdp" value="Mot de passe:" />
+			            <p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="Mot de passe" required="true" type="password">
+			            </p:inputText>
+			        </h:panelGrid>
+			        <p:commandButton  value="Envoyer" actionListener="#{utilisateurController.login}"/>
+			    </p:panel>
+		</h:form>
+	</h:body>
+</html>
