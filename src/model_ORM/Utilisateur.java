@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.criterion.Restrictions;
 
 import connector_DAO.HibernateSessionFactory;
@@ -24,6 +25,8 @@ import services.utilityService;
 @ManagedBean(name="utilisateur")
 @RequestScoped
 @Entity
+@Proxy(lazy=false)
+
 public class Utilisateur implements java.io.Serializable {
 
 	private Integer idUtilisateur;
@@ -61,6 +64,17 @@ public class Utilisateur implements java.io.Serializable {
 		this.client = client;
 	}
 
+	public Utilisateur(String login, String password)
+	{
+		this.login = login;
+		this.motdePasse = password;
+	}
+	
+	public Utilisateur(String login)
+	{
+		this.login = login;
+	}
+	
 	public Integer getIdUtilisateur() {
 		return this.idUtilisateur;
 	}
@@ -139,22 +153,24 @@ public class Utilisateur implements java.io.Serializable {
 		
 		utilityService util = new utilityService();
 		try {
-			encrypted_pw = util.stringHash(motdePasse);
+				encrypted_pw = util.stringHash(motdePasse);
+				Session session = HibernateSessionFactory.currentSession();
+				Transaction tx = session.beginTransaction();
+				Criteria cr = session.createCriteria(Utilisateur.class);
+				cr.add(Restrictions.eq("login", login));
+				cr.add(Restrictions.eq("motdePasse", motdePasse));
+				Utilisateur u = (Utilisateur) cr.uniqueResult();
+				
+				tx.commit();
+				session.close();
+				
+				return u;
+				
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Session session = HibernateSessionFactory.currentSession();
-		Transaction tx = session.beginTransaction();
-		Criteria cr = session.createCriteria(Utilisateur.class);
-		cr.add(Restrictions.eq("login", login));
-		cr.add(Restrictions.eq("motdePasse", motdePasse));
-		Utilisateur u = (Utilisateur) cr.uniqueResult();
-		//System.out.println(login);
-		//System.out.println("Utilisateur = "+ u.getNomUtilisateur());
-		tx.commit();
-		session.close();
 		
-		return u;
+		return null;
 	}
 	
 	public void addUtilisateur(ActionEvent e){
@@ -165,9 +181,6 @@ public class Utilisateur implements java.io.Serializable {
 		try 
 		{
 			u = new Utilisateur(nomUtilisateur,prenomUtilisateur,telephoneUtilisateur,adresseUtilisateur, login, util.stringHash(motdePasse));
-			Criteria cr = session.createCriteria(Utilisateur.class);
-			cr.add(Restrictions.eq("login", login));
-			cr.add(Restrictions.eq("motdePasse", motdePasse));
 			session.save(u);
 			
 		} catch (Exception e1) {
@@ -193,12 +206,7 @@ public class Utilisateur implements java.io.Serializable {
 			
 			/* On récupère les logins et les mot de passes du formulaire, on récupère l'utilisateur correspondant et on le supprime */
 			Criteria cr = session.createCriteria(Utilisateur.class);
-			cr.add(Restrictions.eq("login", login));
-			cr.add(Restrictions.eq("motdePasse", motdePasse));
-			
-			u = (Utilisateur)cr.uniqueResult();
-			u.setLogin(login);
-			u.setMotdePasse(encrypted_pw);
+			u = new Utilisateur(login,encrypted_pw);
 			session.update(u);
 			
 		} catch (Exception ex) {
@@ -219,7 +227,7 @@ public class Utilisateur implements java.io.Serializable {
 		Utilisateur u;
 		
 		/* On récupère l'identifiant de l'utilisateur connecté  et on le supprime de la base de donnée */
-		u = (Utilisateur) session.createCriteria(Utilisateur.class).add(Restrictions.eq("idUtilisateur", idUtilisateur)).uniqueResult();
+		u = new Utilisateur(login);
 		session.delete(u);
 			
 		tx.commit();
