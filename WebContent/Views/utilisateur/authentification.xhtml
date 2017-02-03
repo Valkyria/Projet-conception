@@ -12,15 +12,15 @@
 			    <p:panel id="panel" header="Log In">
 			        <p:messages id="msgs" />
 			        <h:panelGrid columns="3" cellpadding="5">
-			            <p:outputLabel for="firstname" value="Login:" />
-			            <p:inputText id="firstname" value="#{utilisateur.nomUtilisateur}" required="true" label="Login">
+			            <p:outputLabel for="login" value="Login:" />
+			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
 			            </p:inputText>
 			 
-			            <p:outputLabel for="lastname" value="Mot de passe:" />
-			            <p:inputText id="lastname" value="#{utilisateur.prenomUtilisateur}" label="Mot de passe" required="true">
+			            <p:outputLabel for="mdp" value="Mot de passe:" />
+			            <p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="Mot de passe" required="true" type="password">
 			            </p:inputText>
 			        </h:panelGrid>
-			        <p:commandButton  actionListener="#{utilisateurController.userGet('mail@mail.com')}"/>
+			        <p:commandButton  actionListener="#{utilisateur.getUtilisateur}"/>
 			    </p:panel>
 		</h:form>
 	</h:body>

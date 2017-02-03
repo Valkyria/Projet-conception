@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import connector_DAO.HibernateSessionFactory;
+
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -128,14 +131,16 @@ public class Utilisateur implements java.io.Serializable {
 		this.client = client;
 	}
 
-	public Utilisateur getUtilisateur()
+	public void getUtilisateur(ActionEvent event)
 	{
+		System.out.println("login = "+ login);
 		Session session = HibernateSessionFactory.currentSession();
+		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Utilisateur.class);
-		cr.add(Restrictions.eq("login", "mail@mail.com"));
-		Utilisateur u = (Utilisateur)cr.uniqueResult();
-		
-		System.out.println("Utilisateur = "+u.getNomUtilisateur());
-		return(u);
+		cr.add(Restrictions.eq("login", login));
+		cr.add(Restrictions.eq("motdePasse", motdePasse));
+		Utilisateur u = (Utilisateur) cr.uniqueResult();
+		System.out.println("Utilisateur = "+ u.getNomUtilisateur());
+		session.close();
 	}
 }

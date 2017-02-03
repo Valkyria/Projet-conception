@@ -31,18 +31,7 @@ public class utilisateurController
     	session.close();
     }
 	
-	public static void userGet(String mail)
-	{
-		Session session = HibernateSessionFactory.currentSession();
-		Transaction tx = session.beginTransaction();
-		Criteria cr = session.createCriteria(Utilisateur.class);
-		cr.add(Restrictions.eq("login", mail));
-		List <Utilisateur> u = (List<Utilisateur>)cr.list();
-		for( Utilisateur user : u){
-			System.out.println("Utilisateur = "+user.getNomUtilisateur());
-		}
-		session.close();
-	}
+	
 	
 	/*public void verifAuth(String login)
 	{

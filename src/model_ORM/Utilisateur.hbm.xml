@@ -20,7 +20,7 @@
         <property name="adresseUtilisateur" type="string">
             <column name="adresseUtilisateur" length="100" not-null="true" />
         </property>
-        <property name="login" type="string">
+        <property name="login" type="string" unique="true">
             <column name="login" length="50" not-null="true" />
         </property>
         <property name="motdePasse" type="string">
