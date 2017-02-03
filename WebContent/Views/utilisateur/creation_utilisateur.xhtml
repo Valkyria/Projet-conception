@@ -22,16 +22,21 @@
 			            </p:inputText>
 			            
 			            <p:outputLabel for="tel" value="Telephone:" />
-			            <p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone">
+			            <p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone" >
+			            <p:keyFilter regEx="/[\d\-\.]/i"/>
 			            </p:inputText>
 			 
 			            <p:outputLabel for="addresse" value="Addresse:" />
-			            <p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true">
+			            <p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true" >
 			            </p:inputText>
 			            
 			            <p:outputLabel for="login" value="Mail:" />
 			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
+			             <p:keyFilter regEx="/[a-z0-9_\.\-@]/i"/>
 			            </p:inputText>
+			            
+			            
+			          
 			 
 			            <h:outputLabel for="mdp" value="Mot de passe:" />
 			            <p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="mot de passe" required="true" feedback="true" />
@@ -40,7 +45,7 @@
 			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe" />
 			            
 			        </h:panelGrid>
-			        <p:commandButton value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
+			        <p:commandLink id="ajax" update="growl" value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
 			    </p:panel>
 		</h:form>
 	</h:body>
