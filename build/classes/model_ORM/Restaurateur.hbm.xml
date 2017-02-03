@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Restaurateur" table="restaurateur" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idRestaurateur" type="java.lang.Integer">
+            <column name="idRestaurateur" />
+            <generator class="foreign">
+                <param name="property">utilisateur</param>
+            </generator>
+        </id>
+        <one-to-one name="utilisateur" class="model_ORM.Utilisateur" constrained="true"></one-to-one>
+        <set name="annonces" table="annonce" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idRestaurateur" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Annonce" />
+        </set>
+        <set name="restaurants" table="restaurant" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idRestaurateur" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Restaurant" />
+        </set>
+    </class>
+</hibernate-mapping>
