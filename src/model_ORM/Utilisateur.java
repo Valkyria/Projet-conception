@@ -148,18 +148,18 @@ public class Utilisateur implements java.io.Serializable {
 		this.client = client;
 	}
 
-	public Utilisateur getUtilisateur(ActionEvent event)
+	public Utilisateur getUtilisateur(String mail, String mdp)
 	{
 		String encrypted_pw;
 		
 		utilityService util = new utilityService();
 		try {
-				encrypted_pw = util.stringHash(motdePasse);
+				encrypted_pw = util.stringHash(mdp);
 				Session session = HibernateSessionFactory.currentSession();
 				Transaction tx = session.beginTransaction();
 				Criteria cr = session.createCriteria(Utilisateur.class);
-				cr.add(Restrictions.eq("login", login));
-				cr.add(Restrictions.eq("motdePasse", motdePasse));
+				cr.add(Restrictions.eq("login",mail));
+				cr.add(Restrictions.eq("motdePasse", mdp));
 				Utilisateur u = (Utilisateur) cr.uniqueResult();
 				
 				tx.commit();

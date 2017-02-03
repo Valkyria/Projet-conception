@@ -1,19 +1,13 @@
 package controller;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-
-import services.utilisateurService;
-import connector_DAO.HibernateSessionFactory;
 import model_ORM.Utilisateur;
 
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import services.utilisateurService;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import services.sessionService;
 
 @ManagedBean(name="utilisateurController")
 @RequestScoped
@@ -21,5 +15,24 @@ import services.utilisateurService;
 /* Lien entre la vue et le service*/
 public class utilisateurController 
 {
-	
+	public String login(){
+		Utilisateur u;
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		u = (Utilisateur) ec.getRequestMap().get("utilisateur");
+		u = u.getUtilisateur(u.getLogin(), u.getMotdePasse());
+		if(u != null){
+			sessionService session = new sessionService();
+			session.newSession(u);
+			if(session.getSession().getAttribute("pro") != null){
+				return "propage";
+			}
+			else{
+				return "clientpage";
+			}
+		}
+		else{
+			System.out.println("login invalide");
+		}
+		return "gtfo";
+	}
 }
