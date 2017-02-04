@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29 janv. 2017 01:16:12 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="model_ORM.Menu" table="menu" catalog="bdd_cda" optimistic-lock="version">
+        <id name="idMenu" type="java.lang.Integer">
+            <column name="idMenu" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="reduction" class="model_ORM.Reduction" fetch="select">
+            <column name="idReduction" not-null="true" />
+        </many-to-one>
+        <property name="prixMenu" type="double">
+            <column name="prixMenu" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nomMenu" type="string">
+            <column name="nomMenu" length="50" not-null="false" />
+        </property>
+        <set name="plats" table="plat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idMenu" not-null="true" />
+            </key>
+            <one-to-many class="model_ORM.Plat" />
+        </set>
+    </class>
+</hibernate-mapping>
