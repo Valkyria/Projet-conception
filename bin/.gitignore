@@ -1,0 +1,12 @@
+*.class
+
+build/
+*
+/.settings
+
+.classpath
+
+build/*
+
+/build/*
+
