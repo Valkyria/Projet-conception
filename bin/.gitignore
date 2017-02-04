@@ -1,7 +1,5 @@
 *.class
 
-build/
-*
 /.settings
 
 .classpath
