@@ -1,0 +1,16 @@
+body
+{
+	background-color:#334c69;
+}
+
+.ui-panel
+{
+	width:50% !important;
+    text-align:center;
+	margin:auto;
+}
+
+.ui-panel table
+{
+	margin:auto;	
+}

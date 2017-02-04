@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+
+<h:form>  
+    <p:growl id="messages"/>
+    <p:menubar>
+        <p:submenu label="Home" icon="fa fa-home"/>
+        <p:submenu label="Creer un menu"  icon="fa fa-user" url="#{request.contextPath}/Views/menu/creation_menu.xhtml"/>
+	   	<p:submenu label="Creer un restaurant"  icon="fa fa-user" url="/Views/restaurant/creation_restaurant.xhtml"/>
+		<p:submenu label="Supprimer son compte" url="profil.xhtml"/>
+    </p:menubar>
+</h:form>
+</html>

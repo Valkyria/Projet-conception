@@ -27,7 +27,7 @@ public class utilisateurController
 			if(session.getSession().getAttribute("pro") != null){
 				System.out.println("ok boss");
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_restaurateur.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -35,7 +35,7 @@ public class utilisateurController
 			else{
 				System.out.println("ok client");
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_client.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -47,6 +47,7 @@ public class utilisateurController
 		return "gtfo";
 	}
 	public void logout(){
-		
+		sessionService session = new sessionService();
+		session.endSession();
 	}
 }
