@@ -4,6 +4,7 @@ import model_ORM.Utilisateur;
 
 import java.io.IOException;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
@@ -25,7 +26,6 @@ public class utilisateurController
 			sessionService session = new sessionService();
 			session.newSession(u);
 			if(session.getSession().getAttribute("pro") != null){
-				System.out.println("ok boss");
 				try {
 					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_restaurateur.xhtml");
 				} catch (IOException e) {
@@ -33,7 +33,6 @@ public class utilisateurController
 				}
 			}
 			else{
-				System.out.println("ok client");
 				try {
 					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_client.xhtml");
 				} catch (IOException e) {
@@ -42,7 +41,7 @@ public class utilisateurController
 			}
 		}
 		else{
-			System.out.println("login invalide");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur:", "Login/password incorrects."));
 		}
 		return "gtfo";
 	}

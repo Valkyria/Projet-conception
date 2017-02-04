@@ -10,9 +10,10 @@
         <h:outputStylesheet library="css" name="client.css"/>
     </h:head>
     <h:body>
+    	
 		<h:form>
 			    <p:panel id="panel" header="Log In">
-			        <p:messages id="msgs" />
+			        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 			        <h:panelGrid columns="2" cellpadding="5">
 			            <p:outputLabel for="login" value="Login:" />
 			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">

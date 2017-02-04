@@ -4,12 +4,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+		<link type="text/css" rel="stylesheet" href="cthemes/start/skin.css"/>
 		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/ressources/css/client.css"/>
         <title> La Fourchette </title>
     </h:head>
     <h:body>
-    	<ui:include src="header_res.xhtml" />
-		<h1> VUE RESTAURATEUR </h1>
+		    <ui:include src="client_menu.xhtml" />
+			<h1> VUE CLIENT </h1>
+		
 	</h:body>
 </html>
