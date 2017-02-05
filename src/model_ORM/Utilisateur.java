@@ -11,9 +11,11 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import connector_DAO.HibernateSessionFactory;
+import controller.utilisateurController;
 import services.sessionService;
 import services.utilityService;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -160,7 +162,7 @@ public class Utilisateur implements java.io.Serializable {
 				Transaction tx = session.beginTransaction();
 				Criteria cr = session.createCriteria(Utilisateur.class);
 				cr.add(Restrictions.eq("login",mail));
-				cr.add(Restrictions.eq("motdePasse", mdp));
+				cr.add(Restrictions.eq("motdePasse", encrypted_pw));
 				Utilisateur u = (Utilisateur) cr.uniqueResult();
 				
 				tx.commit();
@@ -190,6 +192,8 @@ public class Utilisateur implements java.io.Serializable {
 		utilityService util = new utilityService();
     	Session session = HibernateSessionFactory.currentSession();
     	Utilisateur u;
+    	sessionService userSession = new sessionService();
+
     	if(this.getUtilisateur(login) == null){
     		try 
     		{
@@ -197,7 +201,15 @@ public class Utilisateur implements java.io.Serializable {
     			Transaction tx = session.beginTransaction();
     			session.save(u);
     			tx.commit();
+    			userSession.newSession(u);
+    			if(userSession.getSession().getAttribute("type") == "pro"){
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+    			}
+    			else{
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+    			}
     			
+
     		} catch (Exception e1) {
     			e1.printStackTrace();
     		}

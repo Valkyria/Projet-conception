@@ -27,14 +27,14 @@ public class utilisateurController
 			session.newSession(u);
 			if(session.getSession().getAttribute("pro") != null){
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/restaurateur/restaurateur_index.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("/Views/restaurateur/restaurateur_index.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			else{
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/client/client_index.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("/Views/client/client_index.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

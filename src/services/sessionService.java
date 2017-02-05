@@ -25,9 +25,11 @@ public class sessionService {
 		session.setAttribute("tel", u.getTelephoneUtilisateur());
 		if(u.getRestaurateur() != null){
 			session.setAttribute("pro", u.getRestaurateur());
+			session.setAttribute("type", "pro");
 		}
 		else{
 			session.setAttribute("pro", null);
+			session.setAttribute("type", "cli");
 		}
 	}
 	public HttpSession getSession(){

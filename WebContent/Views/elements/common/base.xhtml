@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+    	<link type="text/css" rel="stylesheet" href="/themes/start/skin.css"/>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/ressources/css/custom.css"/>
+        <title>The Spoon</title>
+    </h:head>
+    <h:body>
+    	<div id="header">
+	    	<h:panelGroup id="includeContainer">
+			  <h:panelGroup rendered="#{sessionScope.type} == 'pro'}">
+			    <ui:include src="/Views/utilisateur/restaurateur/restaurateur_menu.xhtml"/>
+			  </h:panelGroup>
+			  <h:panelGroup rendered="#{sessionScope.type} == 'cli'}">
+			    <ui:include src="/Views/utilisateur/client/client_menu.xhtml"/>
+			  </h:panelGroup>
+			  <h:panelGroup rendered="#{sessionScope.type} eq null}">
+			    <ui:include src="/Views/elements/common/common_menu.xhtml"/>
+			  </h:panelGroup>
+			</h:panelGroup>
+			<p:commandButton  value="#{sessionScope.type}" actionListener="#{utilisateurController.login}"/>
+        </div>
+        <div id="title">The Spoon</div>
+        <div id="menu"></div>
+        <div id="content"><ui:insert name="content"></ui:insert></div>
+    </h:body>
+</html>
