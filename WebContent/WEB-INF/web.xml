@@ -22,4 +22,8 @@
   <param-name>primefaces.THEME</param-name>
   <param-value>dot-luv</param-value> 
 </context-param>
+ <context-param>
+    <param-name>org.apache.myfaces.STRICT_JSF_2_FACELETS_COMPATIBILITY</param-name>
+    <param-value>true</param-value>
+  </context-param>
 </web-app>
