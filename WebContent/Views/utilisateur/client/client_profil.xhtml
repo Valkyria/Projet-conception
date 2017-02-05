@@ -11,23 +11,52 @@
     <h3 style="margin-top:0">Profil</h3>
     <p:tabView orientation="left">
         <p:tab title="Mes Informations">
-            <h:panelGrid columns="2" cellpadding="10">
-                <!-- <h:outputText value="" /> -->
-            </h:panelGrid>
-        </p:tab>
+			<h:form id="user">
+				<h:outputLink />
+				<p:panel id="panel" header="Modification des informations du compte">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+					<h:panelGrid columns="2" cellpadding="5">
+
+						<p:outputLabel for="nom" value="Nom:" />
+						<p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom" placeholder="First Name">
+						</p:inputText>
+
+						<p:outputLabel for="prenom" value="Prenom:" />
+						<p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true">
+						</p:inputText>
+
+						<p:outputLabel for="tel" value="Telephone:" />
+						<p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone">
+							<p:keyFilter regEx="/[\d\-\.]/i" />
+						</p:inputText>
+
+						<p:outputLabel for="addresse" value="Addresse:" />
+						<p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true">
+						</p:inputText>
+
+						<p:outputLabel for="login" value="Mail:" />
+						<p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
+							<p:keyFilter regEx="/[a-z0-9_\.\-@]/i" />
+						</p:inputText>
+
+						<h:outputLabel for="mdp" value="Mot de passe:" />
+						<p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="mot de passe" required="true" feedback="true" />
+
+						<h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
+						<p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe" />
+
+					</h:panelGrid>
+					<p:commandButton id="ajax" value="Envoyer"
+						actionListener="#{utilisateur.addUtilisateur}" />
+				</p:panel>
+			</h:form>
+		</p:tab>
         <p:tab title="Paramètres">
           <h:form>
-        		<p:outputLabel for="mail" value="Mail:" />
-	            	<p:inputText id="mail" value="#{utilisateur.login}" required="true" label="mail" />
-	            		 
-	            <!-- <p:outputLabel for="mdp" value="Mot de passe:" />
-	            	<p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="mdp" required="true">
-	            </p:inputText>
-	            
-	            <p:outputLabel for="tel" value="Confirmation mot de passe" />
-	            	<p:inputText id="tel" value="#{utilisateur.motdePasse}" required="true" label="Telephone" />
-            		-->     
-	 		  		<p:commandButton value="Envoyer" actionListener="#{utilisateur.deleteUtilisateur}"/>
+        	<p:outputLabel for="mail" value="Mail:" />
+	        <p:inputText id="mail" value="#{utilisateur.login}" required="true" label="mail" />
+
+	 		<p:commandButton value="Envoyer" actionListener="#{utilisateur.deleteUtilisateur}"/>
 	 	</h:form>
 	 	</p:tab>
     </p:tabView> 

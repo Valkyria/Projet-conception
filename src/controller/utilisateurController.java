@@ -17,7 +17,7 @@ import services.sessionService;
 /* Lien entre la vue et le service*/
 public class utilisateurController 
 {
-	public String login(){
+	public void login(){
 		Utilisateur u;
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		u = (Utilisateur) ec.getRequestMap().get("utilisateur");
@@ -27,14 +27,14 @@ public class utilisateurController
 			session.newSession(u);
 			if(session.getSession().getAttribute("pro") != null){
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_restaurateur.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/restaurateur/restaurateur_index.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			else{
 				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/view_client.xhtml");
+					FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/client/client_index.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -43,7 +43,6 @@ public class utilisateurController
 		else{
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur:", "Login/password incorrects."));
 		}
-		return "gtfo";
 	}
 	public void logout(){
 		sessionService session = new sessionService();

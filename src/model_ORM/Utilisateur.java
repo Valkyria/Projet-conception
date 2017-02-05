@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import connector_DAO.HibernateSessionFactory;
+import services.sessionService;
 import services.utilityService;
 
 import java.util.List;
@@ -188,20 +189,25 @@ public class Utilisateur implements java.io.Serializable {
 	public void addUtilisateur(ActionEvent e){
 		utilityService util = new utilityService();
     	Session session = HibernateSessionFactory.currentSession();
-    	Transaction tx = session.beginTransaction();
     	Utilisateur u;
-		try 
-		{
-			u = new Utilisateur(nomUtilisateur,prenomUtilisateur,telephoneUtilisateur,adresseUtilisateur, login, util.stringHash(motdePasse));
-			session.save(u);
-			
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-    	tx.commit();
+    	if(this.getUtilisateur(login) == null){
+    		try 
+    		{
+    			u = new Utilisateur(nomUtilisateur,prenomUtilisateur,telephoneUtilisateur,adresseUtilisateur, login, util.stringHash(motdePasse));
+    			Transaction tx = session.beginTransaction();
+    			session.save(u);
+    			tx.commit();
+    			
+    		} catch (Exception e1) {
+    			e1.printStackTrace();
+    		}
+    	}
+    	else{
+    		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur:", "mail deja utilisé."));
+    	}
+    	
     }
 	
-	/* Fonction qui permet de modifier un utilisateur en base */
 	public void updateUtilisateur(ActionEvent e)
 	{
 		
@@ -209,32 +215,32 @@ public class Utilisateur implements java.io.Serializable {
 		utilityService util = new utilityService();
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
-		Utilisateur u;
-		
+		sessionService userSession = new sessionService();
+		Utilisateur u = this.getUtilisateur((String)userSession.getSession().getAttribute("mail"));
 		try 
 		{
 			encrypted_pw = util.stringHash(motdePasse);
-			
-			/* On récupère les logins et les mot de passes du formulaire, on récupère l'utilisateur correspondant et on le supprime */
-			Criteria cr = session.createCriteria(Utilisateur.class);
-			u = new Utilisateur(login,encrypted_pw);
 			session.update(u);
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		tx.commit();
-	
+		tx.commit();	
 	}
 	
 	public void deleteUtilisateur(ActionEvent e)
 	{
-		Utilisateur u = this.getUtilisateur(login);
-
+		sessionService userSession = new sessionService();
+		Utilisateur u1 = this.getUtilisateur(login);
+		Utilisateur u2 = this.getUtilisateur((String)userSession.getSession().getAttribute("mail"));
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
-		session.delete(u);
-			
+		if(u1.equals(u2)){
+			session.delete(u1);
+		}
+		else{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur:", "mail de confirmation incorrect."));
+		}
 		tx.commit();
 	}
 	
