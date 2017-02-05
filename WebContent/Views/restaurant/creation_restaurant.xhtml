@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<ui:composition template="/Views/elements/base.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-
-    <h:head>
-		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
-        <title> La Fourchette </title>
-    </h:head>
-    <h:body>
+    <ui:define name="content">
 		<h:form>
 			    <p:panel id="panel" header="Creation d'un restaurant">
 			        <p:messages id="messages"  autoUpdate="true" />
@@ -45,5 +43,5 @@
 			        <p:commandButton value="Envoyer" actionListener="#{restaurantController.createRestaurant}"/>
 			    </p:panel>
 		</h:form>
-	</h:body>
-</html>
+	</ui:define>
+</ui:composition>

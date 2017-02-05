@@ -203,10 +203,10 @@ public class Utilisateur implements java.io.Serializable {
     			tx.commit();
     			userSession.newSession(u);
     			if(userSession.getSession().getAttribute("type") == "pro"){
-    				FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     			}
     			else{
-    				FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     			}
     			
 

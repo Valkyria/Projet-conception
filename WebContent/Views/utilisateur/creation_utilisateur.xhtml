@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+<ui:composition template="/Views/elements/base.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-
-    <h:head>
-		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
-		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/ressources/css/custom.css"/>
-        <title> La Fourchette </title>
-    </h:head>
-    <h:body>
+    <ui:define name="content">
 		<h:form id="user">
 			<h:outputLink />
 			    <p:panel id="panel" header="Creation d'un compte">
@@ -47,5 +44,5 @@
 			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
 			    </p:panel>
 		</h:form>
-	</h:body>
-</html>
+	</ui:define>
+</ui:composition>
