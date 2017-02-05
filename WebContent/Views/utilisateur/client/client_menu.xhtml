@@ -7,6 +7,7 @@
 	    <p:menubar>
 	        <p:menuitem  value="Home" icon="fa fa-home" url="/Views/utilisateur/client/client_index.xhtml"/>
 	        <p:menuitem  value="Profil"  url="/Views/utilisateur/client/client_profil.xhtml"/>
+	        <p:menuitem  value="Logout" actionListener="#{sessionservice.endSession()}"/>
 	    </p:menubar>
 	</h:form>
 </html>

@@ -1,6 +1,8 @@
 package services;
 
 
+import java.io.IOException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -40,5 +42,10 @@ public class sessionService {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		this.session = (HttpSession) facesContext.getExternalContext().getSession(false);
 		this.session.invalidate();
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/Projet-conception/index.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

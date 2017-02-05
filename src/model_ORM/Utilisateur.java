@@ -203,10 +203,10 @@ public class Utilisateur implements java.io.Serializable {
     			tx.commit();
     			userSession.newSession(u);
     			if(userSession.getSession().getAttribute("type") == "pro"){
-    				FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/restaurateur/restaurateur_index.xhtml");
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("/Projet-conception/Views/utilisateur/restaurateur/restaurateur_index.xhtml");
     			}
     			else{
-    				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("/Projet-conception/index.xhtml");
     			}
     			
 
@@ -250,7 +250,7 @@ public class Utilisateur implements java.io.Serializable {
 		if(u1.equals(u2)){
 			session.delete(u1);
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/Projet-conception/index.xhtml");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
