@@ -203,7 +203,7 @@ public class Utilisateur implements java.io.Serializable {
     			tx.commit();
     			userSession.newSession(u);
     			if(userSession.getSession().getAttribute("type") == "pro"){
-    				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+    				FacesContext.getCurrentInstance().getExternalContext().redirect("Views/utilisateur/restaurateur/restaurateur_index.xhtml");
     			}
     			else{
     				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
@@ -249,6 +249,11 @@ public class Utilisateur implements java.io.Serializable {
 		Transaction tx = session.beginTransaction();
 		if(u1.equals(u2)){
 			session.delete(u1);
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		else{
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur:", "mail de confirmation incorrect."));
