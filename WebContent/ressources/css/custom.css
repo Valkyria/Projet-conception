@@ -15,19 +15,27 @@ ____________________________________________*/
 body
 {
 	background-color:#334c69;
+	font-size: 12px !important;
 }
 
 .ui-panel
 {
-	width:50% !important;
-    text-align:center;
+	width:43% !important;
+    /*text-align:center;*/
 	margin:auto;
+}
+
+.ui-inputswitch .ui-inputswitch-off .ui-inputswitch-on span
+{
+	font-size:12px !important;
+	height : 20px !important;
 }
 
 .ui-panel table
 {
 	margin:auto;	
 }
+
 #content
 {
 	margin-top:20px;

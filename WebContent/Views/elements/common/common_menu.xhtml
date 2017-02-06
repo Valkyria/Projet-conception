@@ -3,16 +3,28 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
     
-	<h:form>  
+	<!-- <h:form>  
 		<p:menubar>
-			<p:menuitem  value="Home" icon="fa fa-home" url="/index.xhtml"/>
-			<p:submenu label="Profil"  icon="fa fa-user">
-				<p:menuitem value="S'authentifier" url="/Views/utilisateur/authentification.xhtml" />
-				<p:menuitem value="S'inscrire" url="/Views/utilisateur/creation_utilisateur.xhtml" />
+			<p:submenu label="Home" icon="fa fa-home"/>
+				<p:submenu label="Profil"  icon="fa fa-user">
+					<p:menuitem value="S'authentifier" url="/Views/utilisateur/authentification.xhtml" />
+					<p:menuitem value="S'inscrire" url="/Views/utilisateur/creation_utilisateur.xhtml" />
 			</p:submenu>
 		</p:menubar>
-	</h:form>
+	</h:form>-->
+<h:form> 
+	<b:navBar brand="The spoon" brandHref="#" fixed="top" inverse="true">
+
+	   	<b:navbarLinks>
+		    <b:navLink href="index.xhtml"><b:icon name="home"/></b:navLink>
+		    <b:navLink value="S'authentifier" href="#contact"></b:navLink>
+	   	</b:navbarLinks>
+        </b:navBar>
+        <b:container>
+       </b:container>
+</h:form>
 
 </html>

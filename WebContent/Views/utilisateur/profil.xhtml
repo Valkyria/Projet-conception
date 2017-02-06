@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+		<link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/start/skin.css"/>
+        <title> La Fourchette </title>
+    </h:head>
+    <h:body>
+    <h3 style="margin-top:0">Profil</h3>
+    <p:tabView orientation="left">
+        <p:tab title="Mes Informations">
+            <h:panelGrid columns="2" cellpadding="10">
+                <!-- <h:outputText value="" /> -->
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Paramètres">
+          <h:form>
+        		<p:outputLabel for="mail" value="Mail:" />
+	            	<p:inputText id="mail" value="#{utilisateur.login}" required="true" label="mail" />
+	            		 
+	            <!-- <p:outputLabel for="mdp" value="Mot de passe:" />
+	            	<p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="mdp" required="true">
+	            </p:inputText>
+	            
+	            <p:outputLabel for="tel" value="Confirmation mot de passe" />
+	            	<p:inputText id="tel" value="#{utilisateur.motdePasse}" required="true" label="Telephone" />
+            		-->     
+	 		  		<p:commandButton value="Envoyer" actionListener="#{utilisateur.deleteUtilisateur}"/>
+	 	</h:form>
+	 	</p:tab>
+    </p:tabView> 
+	</h:body>
+</html>

@@ -17,21 +17,21 @@
 			            </p:inputText>
 			 
 			            <p:outputLabel for="prenom" value="Prenom:" />
-			            <p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true">
-			            </p:inputText>
+			            <p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true"/>
+			            
 			            
 			            <p:outputLabel for="tel" value="Telephone:" />
 			            <p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone" >
 			            <p:keyFilter regEx="/[\d\-\.]/i"/>
 			            </p:inputText>
 			 
-			            <p:outputLabel for="addresse" value="Addresse:" />
-			            <p:inputText id="addresse" value="#{utilisateur.adresseUtilisateur}" label="Addresse" required="true" >
+			            <p:outputLabel for="adresse" value="Adresse:" />
+			            <p:inputText id="adresse" value="#{utilisateur.adresseUtilisateur}" label="Adresse" required="true" >
 			            </p:inputText>
 			            
 			            <p:outputLabel for="login" value="Mail:" />
 			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
-			             <p:keyFilter regEx="/[a-z0-9_\.\-@]/i"/>
+			            <p:keyFilter regEx="/[a-z0-9_\.\-@]/i"/>
 			            </p:inputText>
 			           
 			            <h:outputLabel for="mdp" value="Mot de passe:" />
@@ -40,6 +40,9 @@
 			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
 			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe" />
 			            
+				        <h:outputText value="Restaurateur: " />
+				        <p:inputSwitch value="#{utilisateurService.restaurateur}" offLabel="non" onLabel="oui" id="resto" />
+
 			        </h:panelGrid>
 			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
 			    </p:panel>
