@@ -17,6 +17,7 @@ import services.sessionService;
 /* Lien entre la vue et le service*/
 public class utilisateurController 
 {
+	
 	public void login(){
 		Utilisateur u;
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
