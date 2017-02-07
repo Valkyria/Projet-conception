@@ -426,3 +426,70 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+
+.accueil
+{
+	background-color: rgba(51,76,105,0.6);
+}
+
+footer 
+{
+  color: white;
+}
+
+footer h3 
+{
+  margin-bottom: 50px;
+}
+
+footer .footer-above
+{
+  padding-top: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+footer .footer-col 
+{
+  margin-bottom: 20px;
+}
+
+footer .footer-below 
+{
+  padding: 5px 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.btn-outline 
+{
+  color: white;
+  font-size: 23px;
+  border: solid 2px white;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
+}
+
+.btn-outline:hover,.btn-outline:focus,.btn-outline:active,.btn-outline.active 
+{
+  color: #334c69;
+  background: white;
+  border: solid 2px white;
+}
+
+.btn-social 
+{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 2px solid white;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 23px;
+  line-height: 40px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
