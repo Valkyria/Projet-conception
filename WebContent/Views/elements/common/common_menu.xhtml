@@ -6,25 +6,33 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:b="http://bootsfaces.net/ui">
     
-	<!-- <h:form>  
-		<p:menubar>
-			<p:submenu label="Home" icon="fa fa-home"/>
-				<p:submenu label="Profil"  icon="fa fa-user">
-					<p:menuitem value="S'authentifier" url="/Views/utilisateur/authentification.xhtml" />
-					<p:menuitem value="S'inscrire" url="/Views/utilisateur/creation_utilisateur.xhtml" />
-			</p:submenu>
-		</p:menubar>
-	</h:form>-->
-<h:form> 
-	<b:navBar brand="The spoon" brandHref="#" fixed="top" inverse="true">
+    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"> The Spoon </a>
+            </div>
 
-	   	<b:navbarLinks>
-		    <b:navLink href="index.xhtml"><b:icon name="home"/></b:navLink>
-		    <b:navLink value="S'authentifier" href="#contact"></b:navLink>
-	   	</b:navbarLinks>
-        </b:navBar>
-        <b:container>
-       </b:container>
-</h:form>
-
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about"> Qui sommes nous ?</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services"> Services </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services"> Se connecter </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 </html>

@@ -1,0 +1,93 @@
+<ui:composition template="/Views/elements/base.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+
+	<ui:define name="content">
+	<!-- Header de la page vitrine -->
+		<header class="header">
+	        <div class="header-content">
+	            <div class="header-content-inner">
+	                <h1 id="homeHeading">Votre site de réservation préféré ! </h1>
+	                <hr/>
+	                <p> Avec notre large panel de restaurants, The spoon se classe comme leader de la réservation en ligne <i class="  glyphicon glyphicon-thumbs-up"></i></p> 
+	                <a href="#about" class="btn btn-primary btn-xl page-scroll"> Découvrir </a>
+	            </div>
+	        </div>
+	    </header>
+	
+	<!--  1ère section correspondant à QUI SOMMES NOUS? -->
+	    <section class="bg-primary" id="about">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-8 col-lg-offset-2 text-center">
+	                    <h2 class="section-heading"> Tout ce dont vous avez besoin !</h2>
+	                    <hr class="light" />
+	                    <p class="text-faded"> Rechercher et réservez dès maintenant dans les restaurants de vos rêves afin d'apprecier des repas conviviales pour toutes les occasions  </p>
+	                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button"> Réserver </a>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	
+	<!-- Les différents services  -->
+	    <section id="services">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12 text-center">
+	                    <h2 class="section-heading"> Services </h2>
+	                    <hr class="primary" />
+	                </div>
+	            </div>
+	        </div>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-4 col-md-6 text-center">
+	                    <div class="service-box">
+	                        <i class="fa fa-4x fa-search text-primary sr-icons"></i>
+	                        <h3> Rechercher </h3>
+	                        <p class="text-muted"> Rechercher le(s) restaurant(s) de vos rêves </p>
+	                    </div>
+	                </div>
+	                <div class="col-lg-4 col-md-6 text-center">
+	                    <div class="service-box">
+	                        <i class="fa fa-4x fa-mouse-pointer text-primary sr-icons"></i>
+	                        <h3> Réserver </h3>
+	                        <p class="text-muted"> Cliquer et c'est réserver !</p>
+	                    </div>
+	                </div>
+	                <div class="col-lg-4 col-md-6 text-center">
+	                    <div class="service-box">
+	                        <i class="fa fa-4x fa-cutlery text-primary sr-icons"></i>
+	                        <h3> Déguster </h3>
+	                        <p class="text-muted"> Bon Appetit !</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	    
+	    <section id="contact section">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-8 col-lg-offset-2 text-center">
+	                    <h2 class="section-heading"> Nous Contacter </h2>
+	                    <hr class="primary" />
+	                <div class="col-lg-4 col-lg-offset-2 text-center">
+	                    <i class="fa fa-phone fa-3x sr-contact"></i>
+	                    <p>0102030405</p>
+	                </div>
+	                <div class="col-lg-4 text-center">
+	                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+	                    <p><a href="mailto:spoon@thespoon.fr">spoon@thespoon.fr</a></p>
+	                </div>
+	            </div>
+	        </div>
+	        </div>
+	    </section>
+	    
+	</ui:define>
+</ui:composition>

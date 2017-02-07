@@ -1,9 +1,10 @@
 <ui:composition template="/Views/elements/base.xhtml"
- xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-	 xmlns:p="http://primefaces.org/ui">
+ 	xmlns="http://www.w3.org/1999/xhtml"
+  	xmlns:h="http://java.sun.com/jsf/html"
+   	xmlns:f="http://java.sun.com/jsf/core"
+   	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
 
     <ui:define name="content">
 		<h:form id="user">
@@ -13,8 +14,7 @@
 			        <h:panelGrid columns="2" cellpadding="5">
 			            
 			            <p:outputLabel for="nom" value="Nom:" />
-			            <p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom">
-			            </p:inputText>
+			            <p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom" />
 			 
 			            <p:outputLabel for="prenom" value="Prenom:" />
 			            <p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true"/>

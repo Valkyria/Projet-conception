@@ -3,7 +3,8 @@
   xmlns:h="http://java.sun.com/jsf/html"
    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:p="http://primefaces.org/ui">
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:b="http://bootsfaces.net/ui">
 
     <ui:define name="content">
 		<h:form>
@@ -13,6 +14,7 @@
 					<p:outputLabel for="login" value="Login:" />
 					<p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
 					</p:inputText>
+					
 
 					<p:outputLabel for="mdp" value="Mot de passe:" />
 					<p:inputText id="mdp" value="#{utilisateur.motdePasse}" label="Mot de passe" required="true" type="password">
