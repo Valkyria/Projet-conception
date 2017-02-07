@@ -193,7 +193,7 @@ header
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image:url('../img/Reservation_bis.png');
+  background-image:url('/Projet-conception/ressources/img/Reservation.png');
   text-align: center;
   color: white;
 }
