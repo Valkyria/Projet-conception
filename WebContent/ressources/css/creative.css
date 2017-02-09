@@ -31,7 +31,7 @@ a
 
 a:hover, a:focus 
 {
-  color: white;
+  color: #334c69;
 }
 
 h1,h2,h3,h4,h5,h6 
@@ -429,7 +429,13 @@ body {
 
 .accueil
 {
-	background-color: rgba(51,76,105,0.6);
+	/*background-color: rgba(51,76,105,0.6);*/
+	background-image: url("../img/Reservation.png");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	background-size: cover;
+  	-o-background-size: cover;
+  	background-position: center;
 }
 
 footer 
@@ -450,13 +456,13 @@ footer .footer-above
 
 footer .footer-col 
 {
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
 }
 
 footer .footer-below 
 {
   padding: 5px 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.75); 
 }
 
 .btn-outline 
@@ -488,8 +494,22 @@ footer .footer-below
   line-height: 40px;
 }
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+.create
+{
+	font-size: 10px;
+	margin-top:50px;
+}
+
+.foot
+{
+	color: white;
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+}
+
+.common:focus
+{
+	color : #334c69;
 }

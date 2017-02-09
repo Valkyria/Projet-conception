@@ -20,7 +20,13 @@ body
 .ui-panel
 {
 	width:43% !important;
-    /*text-align:center;*/
+    text-align:center;
+	margin:auto;
+}
+
+.ui-widget-content
+{
+	text-align:center;
 	margin:auto;
 }
 
@@ -35,7 +41,3 @@ body
 	margin:auto;	
 }
 
-#content
-{
-	margin-top:20px;
-}

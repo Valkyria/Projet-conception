@@ -7,45 +7,43 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
     <ui:define name="content">
-		<h:form id="user">
-			<h:outputLink />
+		<b:form id="user" style="margin-top:130px;">
 			    <p:panel id="panel" header="Creation d'un compte">
 			        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-			        <h:panelGrid columns="2" cellpadding="5">
+			        <h:panelGrid columns="2" cellpadding="5" style="margin-top:10px;margin-bottom:5px;">
 			            
-			            <p:outputLabel for="nom" value="Nom:" />
+			            <p:outputLabel for="nom" value="Nom:" styleClass="alig"/>
 			            <p:inputText id="nom" value="#{utilisateur.nomUtilisateur}" required="true" label="Nom" />
 			 
-			            <p:outputLabel for="prenom" value="Prenom:" />
+			            <p:outputLabel for="prenom" value="Prenom:" styleClass="alig"/>
 			            <p:inputText id="prenom" value="#{utilisateur.prenomUtilisateur}" label="Prenom" required="true"/>
 			            
-			            
-			            <p:outputLabel for="tel" value="Telephone:" />
+			            <p:outputLabel for="tel" value="Telephone:" styleClass="alig"/>
 			            <p:inputText id="tel" value="#{utilisateur.telephoneUtilisateur}" required="true" label="Telephone" >
 			            <p:keyFilter regEx="/[\d\-\.]/i"/>
 			            </p:inputText>
 			 
-			            <p:outputLabel for="adresse" value="Adresse:" />
+			            <p:outputLabel for="adresse" value="Adresse:" styleClass="alig"/>
 			            <p:inputText id="adresse" value="#{utilisateur.adresseUtilisateur}" label="Adresse" required="true" >
 			            </p:inputText>
 			            
-			            <p:outputLabel for="login" value="Mail:" />
+			            <p:outputLabel for="login" value="Mail:" styleClass="alig" />
 			            <p:inputText id="login" value="#{utilisateur.login}" required="true" label="Login">
 			            <p:keyFilter regEx="/[a-z0-9_\.\-@]/i"/>
 			            </p:inputText>
 			           
-			            <h:outputLabel for="mdp" value="Mot de passe:" />
+			            <h:outputLabel for="mdp" value="Mot de passe:" styleClass="alig" />
 			            <p:password id="mdp" value="#{utilisateur.motdePasse}" match="mdp2" label="mot de passe" required="true" feedback="true" />
 			            
-			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" />
+			            <h:outputLabel for="mdp2" value="Confirmez le mot de passe:" styleClass="alig" />
 			            <p:password id="mdp2" value="#{utilisateur.motdePasse}" required="true" label="confirmation mot de passe" />
 			            
-				        <h:outputText value="Restaurateur: " />
+				        <h:outputText value="Restaurateur: " styleClass="alig"/>
 				        <p:inputSwitch value="#{utilisateurService.restaurateur}" offLabel="non" onLabel="oui" id="resto" />
 
 			        </h:panelGrid>
-			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{utilisateur.addUtilisateur}"/>
+			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{utilisateur.addUtilisateur}" style="margin-bottom:10px;"/>
 			    </p:panel>
-		</h:form>
+		</b:form>
 	</ui:define>
 </ui:composition>
