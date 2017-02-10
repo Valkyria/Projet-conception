@@ -21,7 +21,7 @@ hr.light
   border-color: white;
 }
 
-a 
+.ancre 
 {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
@@ -29,7 +29,7 @@ a
   color: #334c69;
 }
 
-a:hover, a:focus 
+.ancre:hover, .ancre:focus 
 {
   color: #334c69;
 }
@@ -512,4 +512,16 @@ footer .footer-below
 .common:focus
 {
 	color : #334c69;
+}
+
+
+.barSide
+{
+	background-color:black;
+	margin-top:200px;
+}
+
+a
+{
+	color:white;	
 }

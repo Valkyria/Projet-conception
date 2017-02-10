@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
 
-	<h:form>  
-	    <p:menubar>
-	        <p:menuitem  value="Home" icon="fa fa-home" url="/Views/utilisateur/client/client_index.xhtml"/>
-	        <p:menuitem  value="Profil"  url="/Views/utilisateur/client/client_profil.xhtml"/>
-	        <p:menuitem  value="Logout" actionListener="#{sessionservice.endSession()}"/>
-	    </p:menubar>
-	</h:form>
+	
+    <b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
+    <b:navbarLinks pull="right" >
+        <b:navLink value="Accueil" href="/Views/utilisateur/client/client_index.xhtml" ></b:navLink>
+        <b:navLink value="#{utilisateur.prenomUtilisateur}" href="/Views/utilisateur/client/client_profil.xhtml" ></b:navLink>
+        <b:navLink href="index.xhtml" value="Déconnexion"></b:navLink>
+    </b:navbarLinks>
+</b:navBar>
 </html>
