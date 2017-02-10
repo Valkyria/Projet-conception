@@ -8,33 +8,11 @@
 
 	<ui:define name="content">
 	<b:container>
-	<!-- MODAL D'AUTHENTIFICATION/DE CONNECTION -->
-		<p:dialog header="Connection" widgetVar="dlg2" modal="true" width="320" height="160">
-	   	<b:form styleClass="fsign" style="padding-top:10px;">
-			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-				<b:inputText id="login" value="#{utilisateur.login}" required="true" placeholder="email">
-				 <f:facet name="prepend">
-	                      <b:icon name="user" />
-	                      </f:facet>
-				</b:inputText>
-				
-				<b:inputText id="mdp" value="#{utilisateur.motdePasse}" required="true" type="password" placeholder="password">
-                   <f:facet name="prepend">
-                       <b:icon name="lock" />
-                   </f:facet>
-	            </b:inputText>
 	
-			<p:commandButton value="Envoyer" actionListener="#{utilisateurController.login}" />
-			<br/>
-			<a class="create" href="#{request.contextPath}/Views/utilisateur/creation_utilisateur.xhtml" > Vous n'avez pas de compte ?"</a>
-		</b:form>
-		</p:dialog>
+	
 	</b:container> 
 	
 	<!-- Barre de recherche pour les annonces -->
-	
-	
-	
 	
 	
 	</ui:define>

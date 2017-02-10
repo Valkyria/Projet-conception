@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:b="http://bootsfaces.net/ui">
+
+	<!-- MODAL D'AUTHENTIFICATION/DE CONNECTION -->
+		<p:dialog header="Connection" widgetVar="dlg2" modal="true" width="320" height="160">
+		   	<b:form styleClass="fsign" style="padding-top:10px;">
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+					<b:inputText id="login" value="#{utilisateur.login}" required="true" placeholder="email">
+					 <f:facet name="prepend">
+		                      <b:icon name="user" />
+		                      </f:facet>
+					</b:inputText>
+					
+					<b:inputText id="mdp" value="#{utilisateur.motdePasse}" required="true" type="password" placeholder="password">
+	                   <f:facet name="prepend">
+	                       <b:icon name="lock" />
+	                   </f:facet>
+		            </b:inputText>
+		
+				<p:commandButton value="Envoyer" actionListener="#{utilisateurController.login()}" />
+				<br/>
+				<a class="create" href="#{request.contextPath}/Views/utilisateur/creation_utilisateur.xhtml" > Vous n'avez pas de compte ?"</a>
+			</b:form>
+		</p:dialog>
+</html>

@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import model_ORM.Menu;
+import model_ORM.Plat;
 import model_ORM.Reduction;
 import model_ORM.Restaurant;
 import model_ORM.Restaurateur;
@@ -27,29 +28,22 @@ import javax.faces.context.FacesContext;
 /* Lien entre la vue et le service*/
 public class menuController 
 {
-	private List<String> plats;
+	private List<Plat> plats;
 
-    @PostConstruct
-    public void init() {
-        plats = new ArrayList<String>();
-        plats.add("");
+    public void listPlats() {
+        plats = new ArrayList<Plat>();
+        addItem();
+    }
+    public void setListPlats(List<Plat> plats){
+    	this.plats = plats;
+    }
+    public List<Plat> getListPlats(){
+    	return this.plats;
+    }
+    public void addItem() {
+        plats.add(new Plat());
     }
 
-    public void submit() {
-        // save values in database
-    }
-
-    public void extend() {
-        plats.add("");
-    }
-
-    public void setValues(List<String> values) {
-        this.plats = values;
-    }
-
-    public List<String> getValues() {
-        return plats;
-    }
 	public void createMenu(){
 		Menu menu;
 		Reduction reduction = new Reduction();

@@ -23,5 +23,17 @@
 			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{menuController.createMenu}"/>
 			    </p:panel>
 		</h:form>
+		<h:form id="frmItems">
+	    	<h:panelGrid id="pnlItems">
+	        	<ui:repeat value="#{menuController.listPlats}" var="item">
+	            	<p:outputLabel for="nom" value="Nom du plat:" />
+			            <p:inputText id="nom" value="#{plat.nomPlat}" label="nom" required="true">
+			            </p:inputText>
+	            	<br />
+	        	</ui:repeat>
+	    	</h:panelGrid>
+	    	<p:commandButton value="Add new item" action="#{menuController.addItem}" update="pnlItems" />
+	    <p:commandButton value="Save data" action="#{menuController.createMenu}" />
+	</h:form>
 	</ui:define>
 </ui:composition>
