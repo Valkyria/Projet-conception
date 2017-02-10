@@ -1,0 +1,26 @@
+<ui:composition template="/Views/elements/base.xhtml" 
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:b="http://bootsfaces.net/ui">
+
+    
+	<ui:define name="content">
+		<b:container fluid="true">
+            <b:row>
+                 <ui:include src="/Views/utilisateur/restaurateur/profil/sideBarProfil_restaurateur.xhtml" />
+                <b:column col-md="6" style="background-color:white;margin-top:140px;">
+                	<h2> Mes Menus </h2>
+                    <p> Récupérer les informations des réservations utilisateurs </p> 
+                    <b:dataTable value="" var="car">
+					   <h:column value="#{restaurant.idRestaurant}" />
+					   <h:column value="#{restaurant.nomRestaurant}" />
+					   <h:column value="#{restaurant.adresseRestaurant}" />
+					</b:dataTable>
+               </b:column>
+			</b:row>
+			</b:container>
+			</ui:define>
+</ui:composition>

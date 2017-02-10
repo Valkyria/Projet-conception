@@ -1,0 +1,30 @@
+<ui:composition
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:b="http://bootsfaces.net/ui">
+
+    <b:column col-md="2" offset="2" styleClass="barSide">
+    <b:listLinks>
+	    <b:navLink value="Mes informations"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml"  icon="list" iconAlign="right" styleClass="sideB" />
+	    <b:navLink></b:navLink>
+	    <b:navLink value="Mes restaurants"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesRestaurants_view.xhtml" icon="list" iconAlign="right" active="false"  styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	    <b:navLink value="Mes menus" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesMenus.xhtml" iconAwesome="list" icon-align="right" active="false"  styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	    <b:navLink value="Mes annonces"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesAnnonces.xhtml" icon="list" icon-align="right" styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	    <b:navLink value="Mes réservations" href="#{request.contextPath}/Views/utilisateur/mesReservations.xhtml" icon="book" iconAlign="right" active="false"  styleClass="sideB"/>
+	    <b:navLink></b:navLink>     
+	    <b:navLink value="Mes avis" href="#" icon="pushpin" iconAlign="right" active="false"  styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	    <b:navLink value="Mes favoris" href="#" iconAwesome="star" icon-align="right" active="false"  styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	    <b:navLink value="Déconnexion" icon="off" icon-align="right" actionListener="#{sessionservice.endSession()}" styleClass="sideB"/>
+	    <b:navLink></b:navLink>   
+	</b:listLinks>
+    </b:column>
+</ui:composition>
+               
