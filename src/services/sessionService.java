@@ -1,15 +1,16 @@
 package services;
 
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-
 import model_ORM.Utilisateur;
+import model_ORM.Reservation;
 
 @ManagedBean(name="sessionservice")
 @RequestScoped
@@ -25,6 +26,7 @@ public class sessionService {
 		session.setAttribute("nom", u.getNomUtilisateur());
 		session.setAttribute("prenom", u.getPrenomUtilisateur());
 		session.setAttribute("tel", u.getTelephoneUtilisateur());
+		session.setAttribute("panier", new ArrayList<Reservation>());
 		if(u.getRestaurateur() != null){
 			session.setAttribute("pro", u.getRestaurateur());
 			session.setAttribute("type", "pro");
@@ -47,5 +49,19 @@ public class sessionService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public void addCartItem(Reservation item){
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		this.session = (HttpSession) facesContext.getExternalContext().getSession(false);
+		List<Reservation> panier = (List<Reservation>)this.session.getAttribute("panier");
+		panier.add(item);
+		session.setAttribute("panier", panier);
+	}
+	public void removeCartItem(Reservation item){
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		this.session = (HttpSession) facesContext.getExternalContext().getSession(false);
+		List<Reservation> panier = (List<Reservation>)this.session.getAttribute("panier");
+		panier.remove(item);
+		session.setAttribute("panier", panier);
 	}
 }
