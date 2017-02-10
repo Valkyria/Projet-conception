@@ -6,9 +6,9 @@
 	
     <b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
     <b:navbarLinks pull="right" >
-        <b:navLink value="Accueil" href="/Views/utilisateur/client/client_index.xhtml" ></b:navLink>
-        <b:navLink value="#{utilisateur.prenomUtilisateur}" href="/Views/utilisateur/client/client_profil.xhtml" ></b:navLink>
-        <b:navLink href="index.xhtml" value="Déconnexion"></b:navLink>
+        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/client/client_index.xhtml" ></b:navLink>
+        <b:navLink value="#{utilisateur.prenomUtilisateur}" href="#{request.contextPath}/Views/utilisateur/client/client_profil.xhtml" ></b:navLink>
+        <b:navLink  actionListener="#{utilisateurController.logout()}" value="Déconnexion"></b:navLink>
     </b:navbarLinks>
 </b:navBar>
 </html>

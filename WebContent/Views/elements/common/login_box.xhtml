@@ -8,8 +8,8 @@
      xmlns:b="http://bootsfaces.net/ui">
 
 	<!-- MODAL D'AUTHENTIFICATION/DE CONNECTION -->
-		<p:dialog header="Connection" widgetVar="dlg2" modal="true" width="320" height="160">
-		   	<h:form styleClass="fsign" style="padding-top:10px;">
+		<!-- <p:dialog header="Connection" widgetVar="dlg2" modal="true" width="320" height="160">-->
+		   	<h:form styleClass="fsign" style="padding-top:10px;margin-top : 200px;">
 				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 					<b:inputText id="login" value="#{utilisateur.login}" required="true" placeholder="email">
 					 <f:facet name="prepend">
@@ -27,5 +27,5 @@
 				<br/>
 				<a class="create" href="#{request.contextPath}/Views/utilisateur/creation_utilisateur.xhtml" > Vous n'avez pas de compte ?"</a>
 			</h:form>
-		</p:dialog>
+		<!-- </p:dialog> -->
 </html>
