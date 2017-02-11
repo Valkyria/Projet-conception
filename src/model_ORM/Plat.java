@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.criterion.Restrictions;
 
 import connector_DAO.HibernateSessionFactory;
@@ -16,6 +17,7 @@ import connector_DAO.HibernateSessionFactory;
 @ManagedBean(name="plat")
 @RequestScoped
 @Entity
+@Proxy(lazy=false)
 
 public class Plat implements java.io.Serializable {
 	
