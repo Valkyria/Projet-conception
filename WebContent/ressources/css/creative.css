@@ -528,7 +528,7 @@ footer .footer-below
 
 .barSide,.sideLado
 {
-	margin-top:100px;
+	margin-top:80px;
 }
 a
 {
@@ -558,3 +558,32 @@ a
    text-align:center;
 }
 
+
+.label-default
+{
+	font-size:14px;
+	background-color:#334c69;
+}
+
+h2
+{
+	text-align:center;
+	margin-bottom : 30px;
+}
+
+.separator
+{
+	display:block;
+	margin-bottom:20px;
+	font-size:15px;
+}
+
+.blank
+{
+	margin-bottom:50px;
+}
+
+.disable
+{
+	cursor: not-allowed;
+}

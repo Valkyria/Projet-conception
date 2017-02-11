@@ -9,15 +9,35 @@
     
 	<ui:define name="content">
 		<b:container fluid="true">
+		<b:form>
             <b:row>
                 <ui:include src="/Views/utilisateur/client/profil/sideBarProfil_client.xhtml" />
-                <b:column col-md="6" style="background-color:white;margin-top:140px;">
-                	<h2> Mes Informations </h2>
-                    <p> Récupérer les informations des utilisateurs </p> 
-                    <b:commandButton  look="default"  value="Supprimer le compte" actionListener="#{utilisateur.deleteUtilisateur}" style="margin-bottom:10px;"/>
-                    <b:commandButton  look="default"  value="Modifier le compte" actionListener="#{utilisateur.updateUtilisateur}" style="margin-bottom:10px;"/>
+                <b:column col-md="6" styleClass="sideLado">
+                <h2>Mes informations</h2>
+                    <div class="separator">
+					   <b:column col-md="3"><b:label text="Nom"></b:label> </b:column>
+					    <span>#{sessionScope.nom}</span>
+					</div>
+					<div class="separator">
+						<b:column col-md="3"><b:label text="Prénom"></b:label></b:column>
+					    <span>#{sessionScope.prenom}</span>
+					</div>
+					<div class="separator">
+					    <b:column col-md="3"><b:label text="Téléphone"></b:label></b:column>
+					   	<span>#{sessionScope.tel}</span>
+					</div>
+					<div class="separator">
+					    <b:column col-md="3"><b:label text="Mail"></b:label></b:column>
+					    <span>#{sessionScope.mail}</span>
+					</div>
+					<div class="blank"></div>
+					<div class="col-md-offset-2">
+	                    <b:commandButton  look="danger"  value="Supprimer le compte" actionListener="#{utilisateur.deleteUtilisateur}" style="margin-bottom:30px;"/>
+	                    <b:commandButton  look="warning"  value="Modifier le compte" actionListener="#{utilisateur.updateUtilisateur}" style="margin-bottom:30px;margin-left:40px;"/>
+                	</div>
                 </b:column>
 		</b:row>
+		</b:form>
 	</b:container>
 	</ui:define>
 </ui:composition>

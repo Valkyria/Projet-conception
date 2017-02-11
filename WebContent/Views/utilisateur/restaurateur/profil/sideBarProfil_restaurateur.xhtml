@@ -8,22 +8,20 @@
 
     <b:column col-md="2" offset="2" styleClass="barSide">
     <b:listLinks>
-	    <b:navLink value="Mes informations"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml"  icon="list" iconAlign="right" styleClass="sideB" />
+	    <b:navLink value="Mes informations"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml"  icon-awesome="cog"  iconAlign="right" styleClass="sideB" />
 	    <b:navLink></b:navLink>
-	    <b:navLink value="Mes restaurants"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesRestaurants_view.xhtml" icon="list" iconAlign="right" active="false"  styleClass="sideB"/>
+	    <b:navLink value="Mes restaurants"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesRestaurants_view.xhtml" icon-awesome="cutlery" iconAlign="right" active="false"  styleClass="sideB"/>
 	    <b:navLink></b:navLink>   
 	    <b:navLink value="Mes menus" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesMenus.xhtml" iconAwesome="list" icon-align="right" active="false"  styleClass="sideB"/>
 	    <b:navLink></b:navLink>   
-	    <b:navLink value="Mes annonces"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesAnnonces.xhtml" icon="list" icon-align="right" styleClass="sideB"/>
+	    <b:navLink value="Mes annonces"  href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesAnnonces.xhtml" icon="list" icon-align="right" styleClass="sideB disabled"/>
 	    <b:navLink></b:navLink>   
 	    <b:navLink value="Mes réservations" href="#{request.contextPath}/Views/utilisateur/mesReservations.xhtml" icon="book" iconAlign="right" active="false"  styleClass="sideB"/>
 	    <b:navLink></b:navLink>     
-	    <b:navLink value="Mes avis" href="#" icon="pushpin" iconAlign="right" active="false"  styleClass="sideB"/>
+	    <b:navLink value="Mes avis" href="#" icon="pushpin" iconAlign="right" active="false"  styleClass="sideB disabled"/>
 	    <b:navLink></b:navLink>   
-	    <b:navLink value="Mes favoris" href="#" iconAwesome="star" icon-align="right" active="false"  styleClass="sideB"/>
-	    <b:navLink></b:navLink>   
-	    <b:navLink value="Déconnexion" icon="off" icon-align="right" actionListener="#{sessionservice.endSession()}" styleClass="sideB"/>
-	    <b:navLink></b:navLink>   
+	    <b:navLink value="Mes favoris" href="#" iconAwesome="star" icon-align="right" active="false"  styleClass="sideB disabled"/>
+	    <b:navLink></b:navLink>     
 	</b:listLinks>
     </b:column>
 </ui:composition>

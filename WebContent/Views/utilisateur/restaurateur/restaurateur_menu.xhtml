@@ -13,9 +13,19 @@
 	        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/restaurateur/restaurateur_index.xhtml" icon-awesome="home"></b:navLink>
 	        <b:navLink value="Créer un restaurant" href="#{request.contextPath}/Views/restaurant/creation_restaurant.xhtml" icon-awesome="cutlery"></b:navLink>
 	        <b:navLink value="Créer un menu" href="#{request.contextPath}/Views/menu/creation_menu.xhtml" icon-awesome="book"></b:navLink>
-	         <b:navLink value="Créer une annonce" href="#" icon-awesome="list-alt"></b:navLink>
-	        <b:navLink value="#{sessionScope.prenom}" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml" icon-awesome="user-circle" ><b:icon name="user"></b:icon></b:navLink>
-	        <b:navCommandLink actionListener="#{utilisateurController.logout()}" value="Déconnexion" icon-awesome="power-off" />
+	        <b:navLink value="Créer une annonce" href="#" icon-awesome="list-alt"></b:navLink>
+	        <b:dropMenu value="#{sessionScope.prenom}" icon-awesome="user" >
+             <b:navLink value="Mes informations" icon-awesome="cog" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml"></b:navLink>
+             <b:navLink value="Mes restaurants" icon-awesome="cutlery" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesRestauraunts.xhtml"></b:navLink>
+             <b:navLink value="Mes menus" icon-awesome="book" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesMenus.xhtml"></b:navLink>
+             <b:navLink value="Mes annonces" icon-awesome="book" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/mesAnnonces.xhtml"></b:navLink>
+             <b:navLink></b:navLink> 
+             <b:navLink value="Mes réservations" icon-awesome="list" href="#{request.contextPath}/Views/utilisateur/mesReservations.xhtml"></b:navLink>
+             <b:navLink value="Mes avis" href="#" icon-awesome="comments" iconAlign="right"  styleClass="sideB disabled"/>  
+	     	 <b:navLink value="Mes favoris" href="#" iconAwesome="star" icon-align="right" styleClass="sideB disabled" />
+             <b:navLink></b:navLink>
+             <b:navCommandLink value="Déconnexion" actionListener="#{utilisateurController.logout()}" icon-awesome="power-off"></b:navCommandLink>
+         </b:dropMenu>
 	    </b:navbarLinks>
 	</b:navBar>
 </b:form>

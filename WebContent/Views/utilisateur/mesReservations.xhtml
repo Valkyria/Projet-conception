@@ -16,14 +16,13 @@
 			<c:if test="#{sessionScope.type eq 'cli'}">
 		    	<ui:include src="/Views/utilisateur/client/profil/sideBarProfil_client.xhtml" />
 			</c:if>
-             <b:column col-md="6" style="background-color:white;margin-top:140px;">
+             <b:column col-md="6" styleClass="sideLado">
              	<h2> Mes Réservations </h2>
-                <p> Récupérer les informations des réservations utilisateurs </p> 
-                <b:dataTable value="" var="car">
+                <b:dataTable value="">
 			    <h:column value="#{reservation.idReservation}" />
 			    <h:column value="#{reservation.dateReservation}" />
 		   		<h:column value="#{reservation.annonce}" />
-			</b:dataTable>
+				</b:dataTable>
             </b:column>
 			</b:row>
 			</b:container>

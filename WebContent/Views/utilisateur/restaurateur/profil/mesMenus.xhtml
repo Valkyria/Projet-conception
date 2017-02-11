@@ -11,9 +11,8 @@
 		<b:container fluid="true">
             <b:row>
                  <ui:include src="/Views/utilisateur/restaurateur/profil/sideBarProfil_restaurateur.xhtml" />
-                <b:column col-md="6" style="background-color:white;margin-top:140px;">
-                	<h2> Mes Menus </h2>
-                    <p> Récupérer les informations des réservations utilisateurs </p> 
+                <b:column col-md="6" styleClass="sideLado">
+                	<h2> Mes Menus </h2> 
                     <b:dataTable value="" var="car">
 					   <h:column value="#{restaurant.idRestaurant}" />
 					   <h:column value="#{restaurant.nomRestaurant}" />
