@@ -183,7 +183,7 @@ public class Restaurant implements java.io.Serializable {
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Restaurant.class);
-		List <Restaurant> r = (List<Restaurant>) cr.list();
+		List <Restaurant> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;
@@ -194,7 +194,7 @@ public class Restaurant implements java.io.Serializable {
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Restaurant.class);
 		cr.add(Restrictions.eq("restaurateur", restaura));
-		List <Restaurant> r = (List<Restaurant>) cr.list();
+		List <Restaurant> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;
@@ -227,7 +227,7 @@ public class Restaurant implements java.io.Serializable {
 		if(heureFermetureRestaurant != null){
 			cr.add(Restrictions.eq("heureFermetureRestaurant", heureFermetureRestaurant));
 		}
-		List <Restaurant> r = (List<Restaurant>) cr.list();
+		List <Restaurant> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;

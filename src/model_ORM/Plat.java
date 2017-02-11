@@ -70,7 +70,7 @@ public class Plat implements java.io.Serializable {
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Restaurant.class);
-		List<Plat> plat_array = (List<Plat>) cr.list();
+		List<Plat> plat_array = cr.list();
 		tx.commit();
 		return plat_array;
 	}

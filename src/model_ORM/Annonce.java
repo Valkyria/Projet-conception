@@ -129,7 +129,7 @@ public class Annonce implements java.io.Serializable {
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Annonce.class);
-		List <Annonce> r = (List<Annonce>) cr.list();
+		List <Annonce> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;

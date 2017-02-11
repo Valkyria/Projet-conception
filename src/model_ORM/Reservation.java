@@ -134,7 +134,7 @@ public class Reservation implements java.io.Serializable {
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Reservation.class);
-		List <Reservation> r = (List<Reservation>) cr.list();
+		List <Reservation> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;
@@ -144,7 +144,7 @@ public class Reservation implements java.io.Serializable {
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Reservation.class);
 		cr.add(Restrictions.eq("client", client));
-		List <Reservation> r = (List<Reservation>) cr.list();
+		List <Reservation> r = cr.list();
 		tx.commit();
 		//session.close();
 		return r;
