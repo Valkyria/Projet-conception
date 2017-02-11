@@ -12,6 +12,7 @@ import services.sessionService;
 import connector_DAO.HibernateSessionFactory;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -27,14 +28,14 @@ public class annonceController
 {
 	public void createAnnonce(){
 		Restaurateur restaurateur;
-		
+		System.out.println("check");
 		sessionService session = new sessionService();
 		
 		restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		Annonce annonce = (Annonce) ec.getRequestMap().get("annonce");
         annonce.setRestaurateur(restaurateur);
-        List <Restaurant> restaurants = (List<Restaurant>) restaurateur.getRestaurants();
+        Set <Restaurant> restaurants = restaurateur.getRestaurants();
         for(Restaurant resto : restaurants){
         	annonce.setIdRestaurant(resto.getIdRestaurant());
         }

@@ -21,6 +21,7 @@ import services.utilityService;
 @RequestScoped
 @Entity
 @Proxy(lazy = false)
+
 public class Restaurateur implements java.io.Serializable {
 
 	private Integer idRestaurateur;

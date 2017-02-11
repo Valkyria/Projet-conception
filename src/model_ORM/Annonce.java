@@ -107,8 +107,8 @@ public class Annonce implements java.io.Serializable {
 	public String getNomAnnonce(){
 		return this.nomAnnonce;
 	}
-	public String setNomAnnonce(String nomAnnonce){
-		return this.nomAnnonce = nomAnnonce;
+	public void setNomAnnonce(String nomAnnonce){
+		this.nomAnnonce = nomAnnonce;
 	}
 	public Set getReservations() {
 		return this.reservations;
