@@ -54,4 +54,10 @@ public class restaurantController
 		}
 		return plats;
 	}
+	public List<Restaurant> getAllRestaurants(){
+		sessionService session = new sessionService();
+		Restaurant rest = new Restaurant();
+		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
+		return rest.getRestaurant(restaurateur);
+	}
 }
