@@ -1,0 +1,26 @@
+<ui:composition template="/Views/elements/base.xhtml" 
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:b="http://bootsfaces.net/ui">
+
+    
+	<ui:define name="content">
+		<b:container fluid="true">
+            <b:row>
+                <ui:include src="/Views/utilisateur/client/profil/sideBarProfil_client.xhtml" />
+                <b:column col-md="6" styleClass="sideLado">
+                	<h2> Mes Restaurants </h2>
+                    <b:dataTable value="#{utilisateurController.restaurants}" var="mesResto">
+					    <b:dataTableColumn value="#{mesResto.nomRestaurant}" label="Nom"></b:dataTableColumn>
+					    <b:dataTableColumn value="#{mesResto.adresseRestaurant}" label="Adresse" />
+					    <b:dataTableColumn value="#{mesResto.emailRestaurant}" label="Email"/>
+					    <b:dataTableColumn value="#{mesResto.telephoneRestaurant}" label="Téléphone"/>
+					</b:dataTable>
+               </b:column>
+			</b:row>
+			</b:container>
+			</ui:define>
+</ui:composition>

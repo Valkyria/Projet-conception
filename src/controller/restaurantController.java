@@ -87,7 +87,7 @@ public class restaurantController
 		sessionService session = new sessionService();
 		Restaurant rest = new Restaurant();
 		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
-		List <Annonce> annonces = (List<Annonce>) restaurateur.getAnnonces();
+		//List <Annonce> annonces = (List<Annonce>) restaurateur.getAnnonces();
 		return annonces;
 	}
 }
