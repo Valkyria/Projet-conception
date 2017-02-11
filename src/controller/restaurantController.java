@@ -10,6 +10,7 @@ import services.sessionService;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -63,7 +64,7 @@ public class restaurantController
 		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
 		List<Restaurant> restaurants = rest.getRestaurant(restaurateur);
 		for(Restaurant resto:restaurants){
-			List<Plat> pList = (List<Plat>) resto.getPlats();
+			Set<Plat> pList = resto.getPlats();
 			for(Plat p:pList){
 				plats.add(p);
 			}
