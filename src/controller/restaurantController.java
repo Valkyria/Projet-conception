@@ -1,12 +1,15 @@
 package controller;
 
 
+import model_ORM.Plat;
 import model_ORM.Restaurant;
 import model_ORM.Restaurateur;
 import model_ORM.Tpsmoyenrepas;
 import services.sessionService;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -36,5 +39,19 @@ public class restaurantController
         restaurant.setRestaurateur(restaurateur);
         restaurant.setTpsmoyenrepas(tpsmoyen);
         restaurant.save();
+	}
+	public List<Plat> getPlatsByRestaurant(){
+		List<Plat> plats = new ArrayList <Plat>();
+		sessionService session = new sessionService();
+		Restaurant rest = new Restaurant();
+		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
+		List<Restaurant> restaurants = rest.getRestaurant(restaurateur);
+		for(Restaurant resto:restaurants){
+			List<Plat> pList = (List<Plat>) resto.getPlats();
+			for(Plat p:pList){
+				plats.add(p);
+			}
+		}
+		return plats;
 	}
 }
