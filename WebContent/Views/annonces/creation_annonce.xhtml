@@ -1,0 +1,33 @@
+<ui:composition template="/Views/elements/base.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+		<h:form>
+			    <p:panel id="panel" header="Creation d'un restaurant">
+			        <p:messages id="messages"  autoUpdate="true" />
+			        <h:panelGrid columns="2" cellpadding="5">
+			        
+			        	<p:outputLabel for="nom" value="Nom de l'annonce:" />
+			            	<p:inputText id="nom" value="#{annonce.nomAnnonce}" required="true" label="Nom">
+			            </p:inputText>
+			            
+			            <p:outputLabel for="debutTime" value="Début:" />
+        					<p:calendar id="debutTime" value="#{annonce.dateDebutAnnonce}" pattern="MM/dd/yyyy HH:mm:ss" />
+            			
+            			<p:outputLabel for="finTime" value="Fin:" />
+        					<p:calendar id="finTime" value="#{annonce.dateFinAnnonce}" pattern="MM/dd/yyyy HH:mm:ss" />	
+        					
+			            <p:outputLabel for="nb" value="Nombre de places:" />
+			            <p:inputText id="nb" value="#{annonce.nbPlaces}" required="true" label="nb">
+			            </p:inputText>
+            
+			        </h:panelGrid>
+			        <p:commandButton value="Envoyer" actionListener="#{restaurantController.createRestaurant}"/>
+			    </p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

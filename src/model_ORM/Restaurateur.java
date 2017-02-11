@@ -84,5 +84,10 @@ public class Restaurateur implements java.io.Serializable {
 		
 		return rest;
 	}
-
+	public void save(){
+		Session session = HibernateSessionFactory.currentSession();
+	    Transaction tx = session.beginTransaction();
+		session.save(this);
+	    tx.commit();
+	}
 }

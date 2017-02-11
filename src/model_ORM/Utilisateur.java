@@ -13,6 +13,7 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import connector_DAO.HibernateSessionFactory;
 import controller.utilisateurController;
 import services.sessionService;
+import services.utilisateurService;
 import services.utilityService;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import services.utilityService;
@@ -191,9 +193,11 @@ public class Utilisateur implements java.io.Serializable {
 	public void addUtilisateur(ActionEvent e){
 		utilityService util = new utilityService();
     	Session session = HibernateSessionFactory.currentSession();
+    	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+    	utilisateurService us = (utilisateurService) ec.getRequestMap().get("utilisateurService");
     	Utilisateur u;
     	sessionService userSession = new sessionService();
-
+    	
     	if(this.getUtilisateur(login) == null){
     		try 
     		{
@@ -201,6 +205,12 @@ public class Utilisateur implements java.io.Serializable {
     			Transaction tx = session.beginTransaction();
     			session.save(u);
     			tx.commit();
+    			if(((utilisateurService) us).isRestaurateur()){
+    				tx = session.beginTransaction();
+    				Restaurateur r = new Restaurateur(u);
+    				session.save(r);
+    				tx.commit();
+    			}
     			userSession.newSession(u);
     			if(userSession.getSession().getAttribute("type") == "pro"){
     				FacesContext.getCurrentInstance().getExternalContext().redirect("/Projet-conception/Views/utilisateur/restaurateur/restaurateur_index.xhtml");
