@@ -7,7 +7,7 @@
 	    xmlns:p="http://primefaces.org/ui"
 	    xmlns:b="http://bootsfaces.net/ui">
 
-
+<b:form inline="true">
 	<b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
 	    <b:navbarLinks pull="right" >
 	        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/restaurateur/restaurateur_index.xhtml" icon-awesome="home"></b:navLink>
@@ -18,4 +18,5 @@
 	        <b:navCommandLink actionListener="#{utilisateurController.logout()}" value="Déconnexion" icon-awesome="power-off" />
 	    </b:navbarLinks>
 	</b:navBar>
+</b:form>
 </html>
