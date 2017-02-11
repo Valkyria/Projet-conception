@@ -7,9 +7,11 @@
      xmlns:p="http://primefaces.org/ui"
      xmlns:b="http://bootsfaces.net/ui">
 
-	<!-- MODAL D'AUTHENTIFICATION/DE CONNECTION -->
-		<!-- <p:dialog header="Connection" widgetVar="dlg2" modal="true" width="320" height="160">-->
-		   	<h:form styleClass="fsign" style="padding-top:10px;margin-top : 200px;">
+<b:container layout="fluid">
+<b:row>
+<b:column>
+	<b:modal id="amodal" title="Connection" styleClass="modalPseudoClass" closable="true" close-on-escape="false" backdrop="false" size="modal-sm">
+	    <h:form styleClass="fsign" >
 				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 					<b:inputText id="login" value="#{utilisateur.login}" required="true" placeholder="email">
 					 <f:facet name="prepend">
@@ -23,9 +25,12 @@
 	                   </f:facet>
 		            </b:inputText>
 		
-				<p:commandButton value="Envoyer" actionListener="#{utilisateurController.login()}"/>
+				<p:commandButton value="Envoyer" actionListener="#{utilisateurController.login()}" styleClass="send"/>
 				<br/>
 				<a class="create" href="#{request.contextPath}/Views/utilisateur/creation_utilisateur.xhtml" > Vous n'avez pas de compte ?"</a>
 			</h:form>
-		<!-- </p:dialog> -->
+	</b:modal>
+	</b:column>
+</b:row>
+</b:container>
 </html>

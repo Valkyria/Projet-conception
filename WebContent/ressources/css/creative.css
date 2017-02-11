@@ -518,10 +518,43 @@ footer .footer-below
 .barSide
 {
 	background-color:black;
-	margin-top:200px;
 }
 
+.sideLado
+{
+	background-color: white;
+}
+
+
+.barSide,.sideLado
+{
+	margin-top:100px;
+}
 a
 {
 	color:white;	
 }
+
+.modal-body, .modal-footer
+{
+	background-color:black;
+}
+
+.modal-header
+{
+	background-image: url("../img/texture.png");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	background-size: cover;
+  	-o-background-size: cover;
+  	background-position: center;
+  	color:white;
+  	height:50px;
+  	margin:auto;
+}
+
+.modal {
+   margin-top : 100px;
+   text-align:center;
+}
+
