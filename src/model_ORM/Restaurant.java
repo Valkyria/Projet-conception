@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.criterion.Restrictions;
 
 import connector_DAO.HibernateSessionFactory;
@@ -23,6 +24,7 @@ import javax.faces.event.ActionEvent;
 @ManagedBean(name="restaurant")
 @RequestScoped
 @Entity
+@Proxy(lazy=false)
 
 public class Restaurant implements java.io.Serializable {
 
@@ -176,13 +178,13 @@ public class Restaurant implements java.io.Serializable {
 	public void setCategories(Set categories) {
 		this.categories = categories;
 	}
-	public Restaurant getRestaurant(Restaurateur restaura){
+	public List <Restaurant> getRestaurant(Restaurateur restaura){
 
 		Session session = HibernateSessionFactory.currentSession();
 		Transaction tx = session.beginTransaction();
 		Criteria cr = session.createCriteria(Restaurant.class);
-		cr.add(Restrictions.eq("idRestaurateur", restaura));
-		Restaurant r = (Restaurant) cr.uniqueResult();
+		cr.add(Restrictions.eq("restaurateur", restaura));
+		List <Restaurant> r = (List<Restaurant>) cr.list();
 		tx.commit();
 		//session.close();
 		return r;

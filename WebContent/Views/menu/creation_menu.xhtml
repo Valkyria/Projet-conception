@@ -7,6 +7,19 @@
 
     <ui:define name="content">
 		<h:form>
+				<!-- <p:panel id="rest_select" header="Choix du restaurant">
+			        <br />
+			        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+			        	<p:selectOneListbox id="basic" value="#{menuController.resto}">
+            				<f:selectItems value="#{menuController.restaus}" var="r" itemLabel="#{r.nomRestaurant}" itemValue="#{resto}" />
+            				<p:column>
+                				<h:outputText value="#{r.nomRestaurant}" />
+            				</p:column>
+        				</p:selectOneListbox>
+    				</h:panelGrid>
+			        <br />
+				</p:panel> -->
+				
 			    <p:panel id="panel" header="Creation d'un menu">
 			        <p:messages id="messages"  autoUpdate="true" />
 			        <br />

@@ -72,4 +72,10 @@ public class Plat implements java.io.Serializable {
 		tx.commit();
 		return plat_array;
 	}
+	public void save(){
+		Session session = HibernateSessionFactory.currentSession();
+	    Transaction tx = session.beginTransaction();
+		session.save(this);
+	    tx.commit();
+	}
 }
