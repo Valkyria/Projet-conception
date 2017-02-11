@@ -28,31 +28,42 @@ import javax.faces.context.FacesContext;
 /* Lien entre la vue et le service*/
 public class menuController 
 {
-	private List<Plat> plats;
-
-    public void listPlats() {
-        plats = new ArrayList<Plat>();
-        addItem();
-    }
-    public void setListPlats(List<Plat> plats){
-    	this.plats = plats;
-    }
-    public List<Plat> getListPlats(){
-    	return this.plats;
-    }
-    public void addItem() {
-        plats.add(new Plat());
-    }
-
+	private static final List <String> plats = new ArrayList<String>();
+	String platName;
+	
+	public void addPlat() {
+		System.out.println("ajout de " + platName);
+		System.out.println(plats.size());
+		plats.add(platName);
+	}
+ 
+	public void deletePlat(String plat) {
+		plats.remove(plat);
+	}
+	public void clearPlat() {
+		plats.clear();
+	}
+	public List<String> getPlats() {
+		return plats;
+	}
+	public String getPlatName(){
+		return this.platName;
+	}
+	public void setPlatName(String platName){
+		this.platName = platName;
+	}
 	public void createMenu(){
-		Menu menu;
 		Reduction reduction = new Reduction();
 		
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		menu = (Menu) ec.getRequestMap().get("menu");
+		Menu menu = (Menu) ec.getRequestMap().get("menu");
+		Restaurant rest = (Restaurant) ec.getRequestMap().get("restaurant");
         reduction = reduction.getReduction(1);
         System.out.println(reduction.getIdReduction());
         menu.setReduction(reduction);
         menu.save();
+        for(String plat:plats){
+        	Plat p = new Plat(menu, rest, plat);
+        }
 	}
 }

@@ -7,10 +7,10 @@
 
     <ui:define name="content">
 		<h:form>
-			    <p:panel id="panel" header="Creation d'un compte">
+			    <p:panel id="panel" header="Creation d'un menu">
 			        <p:messages id="messages"  autoUpdate="true" />
+			        <br />
 			        <h:panelGrid columns="2" cellpadding="5">
-			            
 			            <p:outputLabel for="nom" value="Nom :" />
 			            <p:inputText id="nom" value="#{menu.nomMenu}" required="true" label="Nom">
 			            </p:inputText>
@@ -18,22 +18,40 @@
 			            <p:outputLabel for="prix" value="Prix :" />
 			            <p:inputText id="prix" value="#{menu.prixMenu}" label="Prix" required="true">
 			            </p:inputText>
-			            
 			        </h:panelGrid>
+			        <br />
 			        <p:commandButton id="ajax" value="Envoyer" actionListener="#{menuController.createMenu}"/>
 			    </p:panel>
+			    
+			    <!-- _________________________________________________________________________________________ -->
+			    <p:panel id="panel2" header="Affichage des plats">
+				    <h:dataTable value="#{menuController.plats}" var="p" styleClass="order-table" headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row">
+				    	<br />
+		    			<h:column>
+							<f:facet name="header">Plat name</f:facet>#{p}
+						</h:column>
+		    			<h:column>
+	    					<f:facet name="header">Action</f:facet>
+	    					<p:commandButton value="Delete" action="#{menuController.deletePlat(p)}" />
+	    				</h:column>
+	    				<br />
+					</h:dataTable>
+	    		</p:panel>
+	    	  <!-- _________________________________________________________________________________________ -->
 		</h:form>
-		<h:form id="frmItems">
-	    	<h:panelGrid id="pnlItems">
-	        	<ui:repeat value="#{menuController.listPlats}" var="item">
-	            	<p:outputLabel for="nom" value="Nom du plat:" />
-			            <p:inputText id="nom" value="#{plat.nomPlat}" label="nom" required="true">
+		<h:form>
+			 <p:panel id="panel" header="Creation des plats">
+			     <p:messages id="messages"  autoUpdate="true" />
+			     <br />
+			     	<h:panelGrid columns="2" cellpadding="5">
+			           	<p:outputLabel for="nom" value="Nom:" />
+			            <p:inputText id="nom" value="#{menuController.platName}" label="Nom">
 			            </p:inputText>
-	            	<br />
-	        	</ui:repeat>
-	    	</h:panelGrid>
-	    	<p:commandButton value="Add new item" action="#{menuController.addItem}" update="pnlItems" />
-	    <p:commandButton value="Save data" action="#{menuController.createMenu}" />
-	</h:form>
+					</h:panelGrid>
+					<br />
+			    <h:commandButton class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Add" actionListener="#{menuController.addPlat}" reRender="panel2"/>
+			    <h:commandButton class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Clear" actionListener="#{menuController.clearPlat}" reRender="panel2"/>
+			 </p:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>

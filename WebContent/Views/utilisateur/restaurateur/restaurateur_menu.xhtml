@@ -15,7 +15,7 @@
 	        <b:navLink value="Créer un menu" href="#{request.contextPath}/Views/menu/creation_menu.xhtml" icon-awesome="book"></b:navLink>
 	         <b:navLink value="Créer une annonce" href="#" icon-awesome="list-alt"></b:navLink>
 	        <b:navLink value="#{sessionScope.prenom}" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml" icon-awesome="user-circle" ><b:icon name="user"></b:icon></b:navLink>
-	        <b:navLink  actionListener="#{utilisateurController.logout}" value="Déconnexion" icon-awesome="power-off"></b:navLink>
+	        <b:navCommandLink actionListener="#{utilisateurController.logout()}" value="Déconnexion" icon-awesome="power-off" />
 	    </b:navbarLinks>
 	</b:navBar>
 </html>
