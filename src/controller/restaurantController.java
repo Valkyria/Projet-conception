@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
@@ -24,6 +25,21 @@ import javax.faces.view.ViewScoped;
 /* Lien entre la vue et le service*/
 public class restaurantController 
 {
+	private List<Plat> plats;
+	private List<Restaurant> restaurants;
+	
+	@PostConstruct
+    public void init() {
+		plats = this.getPlatsByRestaurant();
+		restaurants = this.getAllRestaurants();
+    }
+	
+	public List<Plat> getPlats(){
+		return this.plats;
+	}
+	public List<Restaurant> getRestaurants(){
+		return this.restaurants;
+	}
 	public void createRestaurant(){
 		Restaurateur restaurateur;
 		Tpsmoyenrepas tpsmoyen;
