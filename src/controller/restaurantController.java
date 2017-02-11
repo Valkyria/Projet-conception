@@ -1,6 +1,7 @@
 package controller;
 
 
+import model_ORM.Annonce;
 import model_ORM.Plat;
 import model_ORM.Restaurant;
 import model_ORM.Restaurateur;
@@ -28,11 +29,13 @@ public class restaurantController
 {
 	private List<Plat> plats;
 	List<Restaurant> restaurants;
+	List<Annonce> annonces;
 	
 	@PostConstruct
     public void init() {
 		plats = this.getPlatsByRestaurant();
 		restaurants = this.getAllRestaurants();
+		annonces = this.getAllAnnonces();
     }
 	
 	public List<Plat> getPlats(){
@@ -40,6 +43,9 @@ public class restaurantController
 	}
 	public List<Restaurant> getRestaurants(){
 		return this.restaurants;
+	}
+	public List<Annonce> getAnnonces(){
+		return this.annonces;
 	}
 	public void createRestaurant(){
 		Restaurateur restaurateur;
@@ -76,5 +82,12 @@ public class restaurantController
 		Restaurant rest = new Restaurant();
 		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
 		return rest.getRestaurant(restaurateur);
+	}
+	public List<Annonce> getAllAnnonces(){
+		sessionService session = new sessionService();
+		Restaurant rest = new Restaurant();
+		Restaurateur restaurateur = (Restaurateur) session.getSession().getAttribute("pro");
+		List <Annonce> annonces = (List<Annonce>) restaurateur.getAnnonces();
+		return annonces;
 	}
 }
