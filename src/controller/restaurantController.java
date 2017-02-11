@@ -26,7 +26,7 @@ import javax.faces.view.ViewScoped;
 public class restaurantController 
 {
 	private List<Plat> plats;
-	private List<Restaurant> restaurants;
+	List<Restaurant> restaurants;
 	
 	@PostConstruct
     public void init() {

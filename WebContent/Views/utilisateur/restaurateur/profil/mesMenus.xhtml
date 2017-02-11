@@ -13,10 +13,10 @@
                  <ui:include src="/Views/utilisateur/restaurateur/profil/sideBarProfil_restaurateur.xhtml" />
                 <b:column col-md="6" styleClass="sideLado">
                 	<h2> Mes Menus </h2> 
-                    <b:dataTable value="" var="car">
-					   <h:column value="#{restaurant.idRestaurant}" />
-					   <h:column value="#{restaurant.nomRestaurant}" />
-					   <h:column value="#{restaurant.adresseRestaurant}" />
+                    <b:dataTable value="#{restaurantController.plats}" var="plat">
+					   <h:column value="#{plat.nomPlat}" />
+					   <h:column value="#{plat.menu.nomMenu}" />
+					   <h:column value="#{plat.restaurant.nomRestaurant}" />
 					</b:dataTable>
                </b:column>
 			</b:row>

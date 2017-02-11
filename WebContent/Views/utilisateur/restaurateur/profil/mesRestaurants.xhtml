@@ -10,15 +10,14 @@
 	<ui:define name="content">
 		<b:container fluid="true">
             <b:row>
-                  <ui:include src="/Views/utilisateur/restaurateur/profil/sideBarProfil_restaurateur.xhtml" />
+                <ui:include src="/Views/utilisateur/restaurateur/profil/sideBarProfil_restaurateur.xhtml" />
                 <b:column col-md="6" styleClass="sideLado">
                 	<h2> Mes Restaurants </h2>
-                    <b:dataTable value="" var="car">
-					   <h:column value="N°" />
-					   <h:column value="Nom" />
-					   <h:column value="Adresse" />
-					   <h:column value="Téléphone" />
-					   <h:column value="Mail" />
+                    <b:dataTable value="#{restaurantController.restaurants}" var="mesResto">
+					    <b:dataTableColumn value="#{mesResto.nomRestaurant}" label="Nom"></b:dataTableColumn>
+					    <b:dataTableColumn value="#{mesResto.adresseRestaurant}" label="Adresse" />
+					    <b:dataTableColumn value="#{mesResto.emailRestaurant}" label="Email"/>
+					    <b:dataTableColumn value="#{mesResto.telephoneRestaurant}" label="Téléphone"/>
 					</b:dataTable>
                </b:column>
 			</b:row>
