@@ -14,6 +14,8 @@
                 <b:column col-md="6" style="background-color:white;margin-top:140px;">
                 	<h2> Mes Informations </h2>
                     <p> Récupérer les informations des utilisateurs </p> 
+                    <b:commandButton  look="default"  value="Supprimer le compte" actionListener="#{utilisateur.deleteUtilisateur}" style="margin-bottom:10px;"/>
+                    <b:commandButton  look="default"  value="Modifier le compte" actionListener="#{utilisateur.updateUtilisateur}" style="margin-bottom:10px;"/>
                 </b:column>
 		</b:row>
 	</b:container>

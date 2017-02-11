@@ -8,41 +8,14 @@
 	    xmlns:b="http://bootsfaces.net/ui">
 
 
-<!-- <h:form>  
-    <p:menubar>
-        <p:menuitem value="Home" icon="fa fa-home"/>
-        <p:menuitem value="Creer un menu"  icon="fa fa-user" url="/Views/menu/creation_menu.xhtml" />
-	   	<p:menuitem value="Creer un restaurant"  icon="fa fa-user" url="/Views/restaurant/creation_restaurant.xhtml" />
-		<p:menuitem  value="Supprimer son compte"  url="/Views/utilisateur/client/client_profil.xhtml"/>
-    </p:menubar>
-</h:form>-->
-<nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top"> The Spoon </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#{request.contextPath}/Views/menu/creation_menu.xhtml"> Créer un menu </a>
-                    </li>
-                    <li>
-                    	<a class="page-scroll" href="#{request.contextPath}/Views/utilisateur/restaurant/creation_restaurant.xhtml"> Créer un restaurant </a>
-                    </li>
-                    <li>
-                    	<a class="page-scroll"href="#{request.contextPath}/Views/utilisateur/client/client_profil.xhtml"><b:iconAwesome name="user-circle" /> Nom utilisateur </a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+	<b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
+	    <b:navbarLinks pull="right" >
+	        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/restaurateur/restaurateur_index.xhtml" icon-awesome="home"></b:navLink>
+	        <b:navLink value="Créer un restaurant" href="#{request.contextPath}/Views/restaurant/creation_restaurant.xhtml" icon-awesome="cutlery"></b:navLink>
+	        <b:navLink value="Créer un menu" href="#{request.contextPath}/Views/menu/creation_menu.xhtml" icon-awesome="book"></b:navLink>
+	         <b:navLink value="Créer une annonce" href="#" icon-awesome="list-alt"></b:navLink>
+	        <b:navLink value="#{sessionScope.prenom}" href="#{request.contextPath}/Views/utilisateur/restaurateur/profil/restaurateur_profil.xhtml" icon-awesome="user-circle" ><b:icon name="user"></b:icon></b:navLink>
+	        <b:navLink  actionListener="#{utilisateurController.logout}" value="Déconnexion" icon-awesome="power-off"></b:navLink>
+	    </b:navbarLinks>
+	</b:navBar>
 </html>
