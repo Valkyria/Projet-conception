@@ -8,10 +8,9 @@
     <b:navbarLinks pull="right" >
         <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/client/client_index.xhtml" ></b:navLink>
         <b:navLink value="#{utilisateur.prenomUtilisateur}" href="#{request.contextPath}/Views/utilisateur/client/client_profil.xhtml" ></b:navLink>
-        <form>
+        <h:form>
         	<b:navCommandLink actionListener="#{utilisateurController.logout()}" value="Déconnexion" />
-        </form>
-        
+        </h:form>
     </b:navbarLinks>
 </b:navBar>
 </html>
