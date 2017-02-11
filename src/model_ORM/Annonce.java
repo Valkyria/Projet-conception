@@ -134,4 +134,10 @@ public class Annonce implements java.io.Serializable {
 		//session.close();
 		return r;
 	}
+	public void save(){
+		Session session = HibernateSessionFactory.currentSession();
+	    Transaction tx = session.beginTransaction();
+		session.save(this);
+	    tx.commit();
+	}
 }
