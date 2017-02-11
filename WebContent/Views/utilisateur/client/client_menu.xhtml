@@ -3,12 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
 
-	
-    <b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
-    <b:navbarLinks pull="right" >
-        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/client/client_index.xhtml" ></b:navLink>
-        <b:navLink value="#{utilisateur.prenomUtilisateur}" href="#{request.contextPath}/Views/utilisateur/client/client_profil.xhtml" ></b:navLink>
-        <b:navLink  actionListener="#{utilisateurController.logout}" value="Déconnexion"></b:navLink>
-    </b:navbarLinks>
-</b:navBar>
+	<b:navBar brand="The Spoon" brandHref="#" inverse="true" fluid="true" sticky="true">
+	    <b:navbarLinks pull="right" >
+	        <b:navLink value="Accueil" href="#{request.contextPath}/Views/utilisateur/client/client_index.xhtml" icon-awesome="home" ></b:navLink>
+	        <b:navLink value="#{sessionScope.prenom}" href="#{request.contextPath}/Views/utilisateur/client/profil/client_profil.xhtml" icon-awesome="user-circle" ></b:navLink>
+	        <b:navLink  actionListener="#{utilisateurController.logout}" value="Déconnexion" icon-awesome="power-off"></b:navLink>
+	    </b:navbarLinks>
+	</b:navBar>
 </html>
