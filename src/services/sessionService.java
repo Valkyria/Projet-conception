@@ -37,7 +37,8 @@ public class sessionService {
 		}
 	}
 	public HttpSession getSession(){
-		return this.session;
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		return (HttpSession) facesContext.getExternalContext().getSession(false);
 	}
 	
 	public void endSession(){
