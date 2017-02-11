@@ -178,6 +178,16 @@ public class Restaurant implements java.io.Serializable {
 	public void setCategories(Set categories) {
 		this.categories = categories;
 	}
+	public List <Restaurant> getAll(){
+
+		Session session = HibernateSessionFactory.currentSession();
+		Transaction tx = session.beginTransaction();
+		Criteria cr = session.createCriteria(Restaurant.class);
+		List <Restaurant> r = (List<Restaurant>) cr.list();
+		tx.commit();
+		//session.close();
+		return r;
+	}
 	public List <Restaurant> getRestaurant(Restaurateur restaura){
 
 		Session session = HibernateSessionFactory.currentSession();

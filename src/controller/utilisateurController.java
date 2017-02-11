@@ -1,9 +1,14 @@
 package controller;
 
+import model_ORM.Annonce;
+import model_ORM.Reservation;
+import model_ORM.Restaurant;
 import model_ORM.Utilisateur;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,6 +22,16 @@ import services.sessionService;
 /* Lien entre la vue et le service*/
 public class utilisateurController 
 {
+	private List<Restaurant> restaurants;
+	private List<Annonce> annonces;
+	private List<Reservation> reservations;
+	
+	@PostConstruct
+    public void init() {
+		annonces = this.getAllAnnonces();
+		restaurants = this.getAllRestaurants();
+    }
+	
 	public void login(){
 		Utilisateur u;
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -47,5 +62,19 @@ public class utilisateurController
 	public void logout(){
 		sessionService session = new sessionService();
 		session.endSession();
+	}
+	public List<Annonce> getAnnonces(){
+		return this.annonces;
+	}
+	public List<Restaurant> getRestaurants(){
+		return this.restaurants;
+	}
+	public List<Restaurant> getAllRestaurants(){
+		Restaurant resto = new Restaurant();
+		return resto.getAll();
+	}
+	public List<Annonce> getAllAnnonces(){
+		Annonce anno = new Annonce();
+		return anno.getAll();
 	}
 }
